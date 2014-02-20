@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package edu.esprit.util;
+package UTIL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class MyConnection {
 
      private static final  String driver = "com.mysql.jdbc.Driver";
-   private static final  String url = "jdbc:mysql://localhost:3306/ds";
+   private static final  String url = "jdbc:mysql://localhost:3306/carshare";
    private static final  String login = "root";
    private static final  String pwd = "";
    private static Connection con;
