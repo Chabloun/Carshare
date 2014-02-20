@@ -7,7 +7,7 @@
 package DAO;
 
 import UTIL.MyConnection;
-import ENTITIES.Road;
+import ENTITIES.RoadENTITIES;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
@@ -16,8 +16,8 @@ import java.sql.ResultSet;
  *
  * @author omar
  */
-public class Road {
-     public void insertRoad(Road r){
+public class RoadDAO {
+     public void insertRoad(RoadENTITIES r){
 
         String requete = "insert into Road (Driver,LongD,LatD,LongR,LatR) values (?,?,?,?,?)";
         try {

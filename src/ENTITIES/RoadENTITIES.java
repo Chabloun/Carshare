@@ -5,7 +5,7 @@ package ENTITIES;
  *
  * @author Omar
  */
-public class Road {
+public class RoadENTITIES {
     private int Id;
     private float longD;
 
