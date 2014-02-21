@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package edu.esprit.util;
+package UTIL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
