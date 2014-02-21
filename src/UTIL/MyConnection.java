@@ -26,23 +26,23 @@ public class MyConnection {
 
    }
 
-   public Connection etablirConnection(){
+   public Connection establishConnection(){
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url,login,pwd);
-            System.out.println("Connexion établie");
+            System.out.println("Connexion established");
         } catch (ClassNotFoundException ex) {
             //Logger.getLogger(MyConnection.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Erreur de chargement de driver"+ex.getMessage());
+            System.out.println("Error loading driver"+ex.getMessage());
         } catch (SQLException ex){
-            System.out.println("probleme d'etablissement de connection"+ex.getMessage());
+            System.out.println("Establishment of connection problem"+ex.getMessage());
         }
 
         return con;
     }
    public static Connection getInstance(){
        if (con==null){
-           new MyConnection().etablirConnection();
+           new MyConnection().establishConnection();
        }
    return con;
    }
