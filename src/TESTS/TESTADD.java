@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+/*
 package TESTS;
 
 import ENTITIES.RoadENTITIES;
@@ -13,6 +13,7 @@ import DAO.RoadDAO;
  *²
  * @author omar
  */
+/*
 public class TESTADD {
     public static void main(String[] args) {
     RoadENTITIES road = new RoadENTITIES();
@@ -21,3 +22,4 @@ public class TESTADD {
     roadDAO.insertRoad(road);
     }
 }
+*/

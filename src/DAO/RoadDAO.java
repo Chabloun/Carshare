@@ -19,19 +19,20 @@ import java.sql.ResultSet;
 public class RoadDAO {
      public void insertRoad(RoadENTITIES r){
 
-        String requete = "insert into Road (Driver,LongD,LatD,LongR,LatR) values (?,?,?,?,?)";
+        String requete = "insert into road (Driver,Price) values (?,?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-            ps.setfloat(1, r.getDriver());
-            ps.setfloat(2, r.getLongD());
-            ps.setfloat(3, r.getLatD());
-            ps.setfloat(4, r.getLongR());
-            ps.setfloat(5, r.getLatR());
+            ps.setString(1, r.getDriver());
+          /*  ps.setFloat(2, r.getLongD());
+            ps.setFloat(3, r.getLatD());
+            ps.setFloat(4, r.getLongR());
+            ps.setFloat(5, r.getLatR()); */
+            ps.setFloat(2,r.getPrice());
             ps.executeUpdate();
-            System.out.println("Ajout effectuée avec succès");
+            System.out.println("Successfully added");
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors de l'insertion "+ex.getMessage());
+            System.out.println("insertion error "+ex.getMessage());
         }
     }
 }

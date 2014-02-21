@@ -7,7 +7,8 @@ package ENTITIES;
  */
 public class RoadENTITIES {
     private int Id;
-    private float longD;
+    private float LongD;
+    private float Price ;
 
     public int getId() {
         return Id;
@@ -18,35 +19,35 @@ public class RoadENTITIES {
     }
 
     public float getLongD() {
-        return longD;
+        return LongD;
     }
 
     public void setLongD(float longD) {
-        this.longD = longD;
+        this.LongD = LongD;
     }
 
     public float getLatD() {
-        return latD;
+        return LatD;
     }
 
-    public void setLatD(float latD) {
-        this.latD = latD;
+    public void setLatD(float LatD) {
+        this.LatD = LatD;
     }
 
     public float getLongR() {
-        return longR;
+        return LongR;
     }
 
-    public void setLongR(float longR) {
-        this.longR = longR;
+    public void setLongR(float LongR) {
+        this.LongR = LongR;
     }
 
     public float getLatR() {
-        return latR;
+        return LatR;
     }
 
-    public void setLatR(float latR) {
-        this.latR = latR;
+    public void setLatR(float LatR) {
+        this.LatR = LatR;
     }
 
     public String getDriver() {
@@ -56,10 +57,19 @@ public class RoadENTITIES {
     public void setDriver(String Driver) {
         this.Driver = Driver;
     }
-    private float latD;
-    private float longR;
-    private float latR;
+    private float LatD;
+    private float LongR;
+    private float LatR;
+    
     private String Driver;
+
+    public float getPrice() {
+        return Price;
+    }
+
+    public void setPrice(float Price) {
+        this.Price = Price;
+    }
     
   
 }
