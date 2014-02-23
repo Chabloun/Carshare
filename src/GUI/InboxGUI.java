@@ -8,7 +8,7 @@ package GUI;
 
 /**
  *
- * @author user
+ * @author Becem
  */
 public class InboxGUI extends javax.swing.JFrame {
  private final Inbox modele = new Inbox();
