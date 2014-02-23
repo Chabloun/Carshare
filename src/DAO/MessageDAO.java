@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  *
- * @author user
+ * @author Becem
  */
 public class MessageDAO {
         public void SendMessage(Message m){
