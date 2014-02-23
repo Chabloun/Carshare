@@ -23,13 +23,14 @@ import java.util.List;
 public class MessageDAO {
         public void SendMessage(Message m){
 
-        String requete = "insert into message (From,To,Object,Content) values (?,?,?,?)";
+        String requete;
+            requete = "insert into message(Sender,Reciever,Object,Content) values(?,?,?,?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-            ps.setString(2, m.getTo());
             ps.setString(1, m.getFrom());
+            ps.setString(2, m.getTo());
             ps.setString(3, m.getObject());
-            ps.setString(1, m.getContent());
+            ps.setString(4, m.getContent());
             ps.executeUpdate();
             System.out.println("Message envoyé avec succée ");
         } catch (SQLException ex) {
