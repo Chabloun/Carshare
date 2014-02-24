@@ -67,19 +67,20 @@ public boolean isCellEditable(int rowIndex, int columnIndex) {
 public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
     if(aValue != null){
         Road road = RoadList.get(rowIndex);
- 
+        RoadDAO rdao=new RoadDAO();
+        
         switch(columnIndex){
-            case 0:
-                road.setId((Integer)aValue);
+          case 0:
+                road.setId((int)aValue);
                 break;
             case 1:
                 road.setDriver((String)aValue);
                 break;
             case 2:
-                road.setPrice((Float)aValue);
+                road.setPrice((float)aValue);
                 break;
               case 3:
-                road.setSeat((Integer)aValue);
+                road.setSeat((int)aValue);
                 break;
             case 4:
                 road.setCityD((String)aValue);
@@ -88,9 +89,11 @@ public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
                 road.setCityR((String)aValue);
                 break;
              case 6:
-                road.setRound((Integer)aValue);
+                road.setRound((int)aValue);
                 break;
         }
+       
+        rdao.updateRoad(road);
     }
 }
 @Override

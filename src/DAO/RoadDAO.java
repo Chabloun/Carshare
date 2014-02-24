@@ -52,8 +52,8 @@ public class RoadDAO {
             System.out.println("Error : "+ex.getMessage());
         }
     }
-         public void updateUser(Road r){
-        String requete = "update road set Driver=?,Price=?,Seat=?,CityD=?,CityR=? ,Round=? where Id=?";
+         public void updateRoad(Road r){
+        String requete = "update road set  Driver=?,Price=?,Seat=?,CityD=?,CityR=? ,Round=? where Id=?";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setString(1, r.getDriver());
@@ -62,6 +62,7 @@ public class RoadDAO {
             ps.setString(4, r.getCityD());
             ps.setString(5, r.getCityR());
             ps.setInt(6, r.getRound());
+            ps.setInt(7, r.getId());
 
             
             ps.executeUpdate();
