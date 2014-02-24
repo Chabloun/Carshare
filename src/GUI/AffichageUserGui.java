@@ -12,10 +12,17 @@
 package GUI;
 
 import ENTITIES.User;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.sql.Date;
+import java.util.Arrays;
 import java.util.Random;
 import javax.swing.AbstractAction;
+import javax.swing.BorderFactory;
+import javax.swing.JTable;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -26,6 +33,17 @@ public class AffichageUserGui extends javax.swing.JFrame {
     /** Creates new form affichageStock */
     public AffichageUserGui() {
         initComponents();
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(jTable1.getModel());
+        jScrollPane1.setBorder(null);
+        jTable1.setRowSorter(sorter);
+        jTable1.setFillsViewportHeight(true);
+        jTable1.setShowHorizontalLines(false);
+        JTableHeader header = jTable1.getTableHeader();
+        Color bgcolor = new Color(45,47,49);
+        Color focolor = new Color(244,244,244);
+        header.setBackground(bgcolor);
+        header.setForeground(focolor);
+        header.setBorder(null);
     }
 
     /** This method is called from within the constructor to
@@ -37,14 +55,37 @@ public class AffichageUserGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BigContainer = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         DeleteUserButton = new javax.swing.JButton();
         AddUserButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(63, 70, 73));
+        setForeground(java.awt.Color.black);
+        setMaximumSize(new java.awt.Dimension(1100, 2147483647));
+        setUndecorated(true);
+        setResizable(false);
 
+        BigContainer.setBackground(new java.awt.Color(63, 70, 73));
+        BigContainer.setMaximumSize(new java.awt.Dimension(1040, 32767));
+        BigContainer.setPreferredSize(new java.awt.Dimension(1040, 600));
+
+        jScrollPane1.setBackground(new java.awt.Color(63, 70, 73));
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setOpaque(true);
+
+        jTable1.setBackground(new java.awt.Color(45, 47, 49));
+        jTable1.setBorder(null);
+        jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(modele);
+        jTable1.setGridColor(new java.awt.Color(63, 71, 73));
+        jTable1.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        jTable1.setRowHeight(30);
+        jTable1.setSelectionBackground(new java.awt.Color(35, 168, 109));
         jScrollPane1.setViewportView(jTable1);
 
         DeleteUserButton.setText("Supprimer");
@@ -54,34 +95,64 @@ public class AffichageUserGui extends javax.swing.JFrame {
             }
         });
 
-        AddUserButton.setText("Ajouter");
+        AddUserButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/addUserButton_MouseOut.png"))); // NOI18N
+        AddUserButton.setAlignmentY(0.0F);
         AddUserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddUserButtonActionPerformed(evt);
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Menu.png"))); // NOI18N
+
+        javax.swing.GroupLayout BigContainerLayout = new javax.swing.GroupLayout(BigContainer);
+        BigContainer.setLayout(BigContainerLayout);
+        BigContainerLayout.setHorizontalGroup(
+            BigContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BigContainerLayout.createSequentialGroup()
+                .addGroup(BigContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BigContainerLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(DeleteUserButton))
+                    .addGroup(BigContainerLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(BigContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 958, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BigContainerLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(AddUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180))
+        );
+        BigContainerLayout.setVerticalGroup(
+            BigContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BigContainerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(DeleteUserButton)
+                .addGap(66, 66, 66))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(DeleteUserButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AddUserButton)
-                .addContainerGap())
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+                .addComponent(BigContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 1100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddUserButton)
-                    .addComponent(DeleteUserButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(BigContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();
@@ -89,19 +160,27 @@ public class AffichageUserGui extends javax.swing.JFrame {
     
     
     private void AddUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUserButtonActionPerformed
+        AddUserButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/addUserButton_MouseOut.png")));
         Random rand = new Random();
         int  n = rand.nextInt(50) + 1;
         String Number= Integer.toString(n);
-        User newuser= new User("Client "+Number, "SDQSD", "dfgfdg", "qsdqds", "sqdqsd", "rerz@erezr.com", new Date(2014,01,01), "tunis", 1);
-       modele.add_User(newuser);
+        User newuser= new User("Client "+Number, "SDQSD", "dfgfdg", "qsdqds", "sqdqsd", "rerz@erezr.com", java.sql.Date.valueOf("1992-08-01"), "tunis", 1);
+        modele.add_User(newuser);
     }//GEN-LAST:event_AddUserButtonActionPerformed
 
     private void DeleteUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteUserButtonActionPerformed
         int[] selection = jTable1.getSelectedRows();
- 
-            for(int i = selection.length - 1; i >= 0; i--){
-                modele.remove_user(selection[i]);
-            }
+        int[] modelIndexes = new int[selection.length];
+        
+        for(int i = 0; i < selection.length; i++)
+        {
+            modelIndexes[i] = jTable1.getRowSorter().convertRowIndexToModel(selection[i]);
+        }
+        Arrays.sort(modelIndexes);
+        for(int i = modelIndexes.length - 1; i >= 0; i--)
+        {
+             modele.remove_user(modelIndexes[i]);
+        }
     }//GEN-LAST:event_DeleteUserButtonActionPerformed
 
     /**
@@ -118,7 +197,9 @@ public class AffichageUserGui extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddUserButton;
+    private javax.swing.JPanel BigContainer;
     private javax.swing.JButton DeleteUserButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
