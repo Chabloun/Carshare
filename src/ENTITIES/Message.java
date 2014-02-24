@@ -8,7 +8,7 @@ package ENTITIES;
 
 /**
  *
- * @author user
+ * @author Becem
  */
 public class Message {
     private int id_message;
