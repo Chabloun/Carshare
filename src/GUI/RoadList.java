@@ -98,7 +98,7 @@ public class RoadList extends javax.swing.JFrame {
        Random rand = new Random();
        int  n = rand.nextInt(50) + 1;
        String Number= Integer.toString(n);
-       Road road = new Road(0,"Driver"+Number,"1","1",0,0);
+       Road road = new Road("Driver"+Number,1,1,"0","0",1);
        modele.AddRoad(road);
     }//GEN-LAST:event_AddActionPerformed
 

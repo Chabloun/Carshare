@@ -16,9 +16,8 @@ public class RoadListGUI  extends AbstractTableModel{
       public RoadListGUI()
       {
           RoadDAO rdao = new RoadDAO();
-          RoadList=rdao.DisplayAllRoad();
+                  RoadList=rdao.DisplayAllRoad();
       }
-      
        @Override
     public int getRowCount() {
         return RoadList.size();
@@ -71,24 +70,51 @@ public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
  
         switch(columnIndex){
             case 0:
-                road.setDriver((String)aValue);
+                road.setId((Integer)aValue);
                 break;
             case 1:
-                road.setPrice((float)aValue);
+                road.setDriver((String)aValue);
                 break;
             case 2:
-                road.setRound((int)aValue);
+                road.setPrice((Float)aValue);
                 break;
-            case 3:
-                road.setCityD((String)aValue);
+              case 3:
+                road.setSeat((Integer)aValue);
                 break;
             case 4:
+                road.setCityD((String)aValue);
+                break;
+            case 5:
                 road.setCityR((String)aValue);
+                break;
+             case 6:
+                road.setRound((Integer)aValue);
                 break;
         }
     }
 }
-    
+@Override
+    public Class getColumnClass(int column) {
+        switch (column) {
+            case 0:
+                return Integer.class;
+            case 1:
+                return String.class;
+            case 2:
+                return Float.class;
+            case 3:
+                return Integer.class;
+            case 4:
+                return String.class;
+            case 5:
+                return String.class;
+            case 6:
+                return Integer.class;
+                default:
+                return String.class;
+                }
+            }
+                
     public void RemoveRoad(int rowIndex)
     {
         RoadDAO rdao = new RoadDAO();

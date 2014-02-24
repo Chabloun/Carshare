@@ -22,21 +22,16 @@ import java.util.List;
 public class RoadDAO {
      public void AddRoad(Road r){
 
-        String requete = "insert into road (Driver,Price,Seat,Round,CityD,CityR) values (?,?,?,?,?,?)";
+        String requete = "insert into road (Driver,Price,Seat,CityD,CityR,Round) values (?,?,?,?,?,?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setString(1, r.getDriver());
-          /*  ps.setFloat(2, r.getLongD());
-            ps.setFloat(3, r.getLatD());
-            ps.setFloat(4, r.getLongR());
-            ps.setFloat(5, r.getLatR()); */
             ps.setFloat(2,r.getPrice());
             ps.setInt(3,r.getSeat());
-            ps.setInt(4,r.getRound());
-            ps.setString(5,r.getCityD());
-            ps.setString(6,r.getCityR());
-          
-            
+            ps.setString(4,r.getCityD());
+            ps.setString(5,r.getCityR());
+            ps.setInt(6,r.getRound());
+         
             ps.executeUpdate();
             System.out.println("Successfully added");
         } catch (SQLException ex) {
@@ -58,15 +53,16 @@ public class RoadDAO {
         }
     }
          public void updateUser(Road r){
-        String requete = "update road set Driver=?,Price=?,Seat=?,Round=?,CityD=?,CityR=? where Id=?";
+        String requete = "update road set Driver=?,Price=?,Seat=?,CityD=?,CityR=? ,Round=? where Id=?";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setString(1, r.getDriver());
             ps.setFloat(2, r.getPrice());
             ps.setInt(3, r.getSeat());
-            ps.setInt(4, r.getRound());
-            ps.setString(5, r.getCityD());
-            ps.setString(6, r.getCityR());
+            ps.setString(4, r.getCityD());
+            ps.setString(5, r.getCityR());
+            ps.setInt(6, r.getRound());
+
             
             ps.executeUpdate();
             System.out.println("Road updated successfully");
