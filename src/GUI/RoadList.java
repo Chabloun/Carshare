@@ -1,11 +1,12 @@
 
 package GUI;
 
-import ENTITIES.RoadENTITIES;
+import ENTITIES.Road;
 import java.awt.event.ActionEvent;
 import java.sql.Date;
 import java.util.Random;
 import javax.swing.AbstractAction;
+import javax.swing.JFrame;
 /**
  *
  * @author omar
@@ -19,6 +20,7 @@ public class RoadList extends javax.swing.JFrame {
      
     public RoadList() {
         initComponents();
+        RoadList.setAutoCreateRowSorter(true);
     }
 
     /**
@@ -32,6 +34,8 @@ public class RoadList extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         RoadList = new javax.swing.JTable();
+        Add = new javax.swing.JButton();
+        Remove = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -40,34 +44,47 @@ public class RoadList extends javax.swing.JFrame {
             }
         });
 
-        RoadList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        RoadList.setModel(modele);
         jScrollPane1.setViewportView(RoadList);
+
+        Add.setText("Add");
+        Add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddActionPerformed(evt);
+            }
+        });
+
+        Remove.setText("Remove");
+        Remove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(297, 297, 297)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(428, Short.MAX_VALUE))
+                .addGap(253, 253, 253)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(304, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147)
+                .addComponent(Remove)
+                .addGap(360, 360, 360))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Remove)
+                    .addComponent(Add))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
 
         pack();
@@ -76,6 +93,21 @@ public class RoadList extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+       Random rand = new Random();
+       int  n = rand.nextInt(50) + 1;
+       String Number= Integer.toString(n);
+       Road road = new Road(0,"Driver"+Number,"1","1",0,0);
+       modele.AddRoad(road);
+    }//GEN-LAST:event_AddActionPerformed
+
+    private void RemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveActionPerformed
+        int[] selection =RoadList.getSelectedRows();
+            for(int i = selection.length - 1; i >= 0; i--){
+                modele.RemoveRoad(selection[i]);
+            }
+    }//GEN-LAST:event_RemoveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,6 +145,8 @@ public class RoadList extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Add;
+    private javax.swing.JButton Remove;
     private javax.swing.JTable RoadList;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
