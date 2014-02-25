@@ -41,6 +41,8 @@ public class AffichageUserGui extends javax.swing.JFrame {
         jTable1.setRowSorter(sorter);
         jTable1.setFillsViewportHeight(true);
         jTable1.setShowHorizontalLines(false);
+        Color JframeColor = new Color(63,70,73);
+        getContentPane().setBackground(JframeColor);
         JTableHeader header = jTable1.getTableHeader();
         Color bgcolor = new Color(45,47,49);
         Color focolor = new Color(244,244,244);
@@ -78,9 +80,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BigContainer = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        MiddleContaner = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         AddUserPanel = new javax.swing.JPanel();
@@ -95,13 +95,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(0, 600));
         setPreferredSize(new java.awt.Dimension(1070, 600));
 
-        BigContainer.setBackground(new java.awt.Color(63, 70, 73));
-        BigContainer.setMaximumSize(new java.awt.Dimension(1040, 32767));
-        BigContainer.setPreferredSize(new java.awt.Dimension(1000, 600));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Menu.png"))); // NOI18N
-
-        MiddleContaner.setBackground(null);
 
         jScrollPane1.setBackground(new java.awt.Color(63, 70, 73));
         jScrollPane1.setBorder(null);
@@ -118,11 +112,10 @@ public class AffichageUserGui extends javax.swing.JFrame {
         jTable1.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTable1);
 
-        AddUserPanel.setBackground(null);
+        AddUserPanel.setBackground(new java.awt.Color(63, 70, 73));
         AddUserPanel.setMaximumSize(new java.awt.Dimension(32767, 40));
         AddUserPanel.setMinimumSize(new java.awt.Dimension(100, 40));
         AddUserPanel.setPreferredSize(new java.awt.Dimension(496, 40));
-        AddUserPanel.setLayout(null);
 
         AddUserLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/addUserButton_MouseOut.png"))); // NOI18N
         AddUserLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -137,16 +130,30 @@ public class AffichageUserGui extends javax.swing.JFrame {
                 AddUserLabelMouseExited(evt);
             }
         });
-        AddUserPanel.add(AddUserLabel);
-        AddUserLabel.setBounds(0, 0, 100, 30);
+
+        javax.swing.GroupLayout AddUserPanelLayout = new javax.swing.GroupLayout(AddUserPanel);
+        AddUserPanel.setLayout(AddUserPanelLayout);
+        AddUserPanelLayout.setHorizontalGroup(
+            AddUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddUserPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(AddUserLabel)
+                .addContainerGap())
+        );
+        AddUserPanelLayout.setVerticalGroup(
+            AddUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddUserPanelLayout.createSequentialGroup()
+                .addComponent(AddUserLabel)
+                .addGap(0, 16, Short.MAX_VALUE))
+        );
+
         AddUserLabel.getAccessibleContext().setAccessibleName("LabelAddUser");
         AddUserLabel.getAccessibleContext().setAccessibleDescription("");
 
-        RemoveUserPanel.setBackground(null);
+        RemoveUserPanel.setBackground(new java.awt.Color(63, 70, 73));
         RemoveUserPanel.setMaximumSize(new java.awt.Dimension(32767, 40));
         RemoveUserPanel.setMinimumSize(new java.awt.Dimension(100, 40));
         RemoveUserPanel.setPreferredSize(new java.awt.Dimension(496, 40));
-        RemoveUserPanel.setLayout(null);
 
         RemoveUserLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/deleteUserButton_MouseOut.png"))); // NOI18N
         RemoveUserLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -161,58 +168,56 @@ public class AffichageUserGui extends javax.swing.JFrame {
                 RemoveUserLabelMouseExited(evt);
             }
         });
-        RemoveUserPanel.add(RemoveUserLabel);
-        RemoveUserLabel.setBounds(0, 0, 100, 30);
 
-        javax.swing.GroupLayout MiddleContanerLayout = new javax.swing.GroupLayout(MiddleContaner);
-        MiddleContaner.setLayout(MiddleContanerLayout);
-        MiddleContanerLayout.setHorizontalGroup(
-            MiddleContanerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MiddleContanerLayout.createSequentialGroup()
+        javax.swing.GroupLayout RemoveUserPanelLayout = new javax.swing.GroupLayout(RemoveUserPanel);
+        RemoveUserPanel.setLayout(RemoveUserPanelLayout);
+        RemoveUserPanelLayout.setHorizontalGroup(
+            RemoveUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RemoveUserPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(MiddleContanerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MiddleContanerLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(AddUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RemoveUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
-        );
-        MiddleContanerLayout.setVerticalGroup(
-            MiddleContanerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MiddleContanerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MiddleContanerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RemoveUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(RemoveUserLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        javax.swing.GroupLayout BigContainerLayout = new javax.swing.GroupLayout(BigContainer);
-        BigContainer.setLayout(BigContainerLayout);
-        BigContainerLayout.setHorizontalGroup(
-            BigContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BigContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(8, Short.MAX_VALUE))
-            .addComponent(MiddleContaner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        RemoveUserPanelLayout.setVerticalGroup(
+            RemoveUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RemoveUserPanelLayout.createSequentialGroup()
+                .addComponent(RemoveUserLabel)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        BigContainerLayout.setVerticalGroup(
-            BigContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BigContainerLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(77, Short.MAX_VALUE)
+                        .addComponent(jLabel1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(RemoveUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AddUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1))))
+                .addGap(53, 53, 53))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MiddleContaner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(AddUserPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                    .addComponent(RemoveUserPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
+                .addGap(8, 8, 8))
         );
-
-        getContentPane().add(BigContainer, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -273,8 +278,6 @@ public class AffichageUserGui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddUserLabel;
     private javax.swing.JPanel AddUserPanel;
-    private javax.swing.JPanel BigContainer;
-    private javax.swing.JPanel MiddleContaner;
     private javax.swing.JLabel RemoveUserLabel;
     private javax.swing.JPanel RemoveUserPanel;
     private javax.swing.JLabel jLabel1;
