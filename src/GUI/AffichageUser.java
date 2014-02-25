@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -27,6 +28,7 @@ public class AffichageUser extends AbstractTableModel{
     {
         UserDAO userdao = new UserDAO();
         ListUser = userdao.DisplayAllUsers();
+        
     }
     
     @Override

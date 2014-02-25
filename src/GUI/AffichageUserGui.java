@@ -79,7 +79,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
     private void initComponents() {
 
         BigContainer = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel("NORTH");
+        jLabel1 = new javax.swing.JLabel();
         MiddleContaner = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -93,8 +93,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
         setForeground(java.awt.Color.black);
         setMaximumSize(new java.awt.Dimension(1100, 600));
         setMinimumSize(new java.awt.Dimension(0, 600));
-        setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1058, 600));
+        setPreferredSize(new java.awt.Dimension(1070, 600));
 
         BigContainer.setBackground(new java.awt.Color(63, 70, 73));
         BigContainer.setMaximumSize(new java.awt.Dimension(1040, 32767));
@@ -102,7 +101,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Menu.png"))); // NOI18N
 
-        MiddleContaner.setBackground(new java.awt.Color(255, 0, 0));
+        MiddleContaner.setBackground(null);
 
         jScrollPane1.setBackground(new java.awt.Color(63, 70, 73));
         jScrollPane1.setBorder(null);
@@ -119,7 +118,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
         jTable1.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTable1);
 
-        AddUserPanel.setBackground(new java.awt.Color(204, 0, 204));
+        AddUserPanel.setBackground(null);
         AddUserPanel.setMaximumSize(new java.awt.Dimension(32767, 40));
         AddUserPanel.setMinimumSize(new java.awt.Dimension(100, 40));
         AddUserPanel.setPreferredSize(new java.awt.Dimension(496, 40));
@@ -143,7 +142,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
         AddUserLabel.getAccessibleContext().setAccessibleName("LabelAddUser");
         AddUserLabel.getAccessibleContext().setAccessibleDescription("");
 
-        RemoveUserPanel.setBackground(new java.awt.Color(255, 0, 204));
+        RemoveUserPanel.setBackground(null);
         RemoveUserPanel.setMaximumSize(new java.awt.Dimension(32767, 40));
         RemoveUserPanel.setMinimumSize(new java.awt.Dimension(100, 40));
         RemoveUserPanel.setPreferredSize(new java.awt.Dimension(496, 40));
@@ -170,14 +169,16 @@ public class AffichageUserGui extends javax.swing.JFrame {
         MiddleContanerLayout.setHorizontalGroup(
             MiddleContanerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MiddleContanerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(MiddleContanerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(MiddleContanerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MiddleContanerLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(AddUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RemoveUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(RemoveUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         MiddleContanerLayout.setVerticalGroup(
             MiddleContanerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +189,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
                 .addGroup(MiddleContanerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RemoveUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AddUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout BigContainerLayout = new javax.swing.GroupLayout(BigContainer);
@@ -198,7 +199,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
             .addGroup(BigContainerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
             .addComponent(MiddleContaner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         BigContainerLayout.setVerticalGroup(
@@ -207,8 +208,8 @@ public class AffichageUserGui extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MiddleContaner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(15, 15, 15))
+                .addComponent(MiddleContaner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         getContentPane().add(BigContainer, java.awt.BorderLayout.CENTER);
