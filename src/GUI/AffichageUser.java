@@ -8,9 +8,13 @@ package GUI;
 
 import DAO.UserDAO;
 import ENTITIES.User;
+import java.awt.Color;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -24,6 +28,12 @@ public class AffichageUser extends AbstractTableModel{
     {
         UserDAO userdao = new UserDAO();
         ListUser = userdao.DisplayAllUsers();
+        
+    }
+    
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return true; //Toutes les cellules éditables
     }
     
     @Override
@@ -61,9 +71,43 @@ public class AffichageUser extends AbstractTableModel{
                 return null;
         }
     }
-    
     @Override
-    //{0"",1"Id",2"Login",3"Password",4"Lasr Name",5"First Name",6"Address",7"Email",8"Birth Date",9"City",10"Rank"}
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        if(aValue != null){
+            User user = ListUser.get(rowIndex);
+            UserDAO userDAO = new UserDAO();
+            switch(columnIndex){
+                case 0:
+                    break;
+                case 1:
+                    user.setPassword((String)aValue);
+                    break;
+                case 2:
+                    user.setLastName((String)aValue);
+                    break;
+                case 3:
+                    user.setFirstName((String)aValue);
+                    break;
+                case 4:
+                    user.setAddress((String)aValue);
+                    break;
+                case 5:
+                    user.setEmail((String)aValue);
+                    break;
+                case 6:
+                    user.setDateB((Date)aValue);
+                    break;
+                case 7:
+                    user.setCity((String)aValue);
+                    break;
+                case 8:
+                    user.setRank((int)aValue);
+                    break;
+            }
+            if(columnIndex!=0)userDAO.updateUser(user);
+        }
+    }
+    @Override
     public Class getColumnClass(int column) {
         switch (column) {
             case 0:
@@ -79,7 +123,7 @@ public class AffichageUser extends AbstractTableModel{
             case 5:
                 return String.class;
             case 6:
-                return String.class;
+                return Date.class;
             case 7:
                 return String.class;
             case 8:
