@@ -108,4 +108,43 @@ public class RoadDAO {
             return null;
         }
     }
+       
+       
+       public List<Road> RechercherRoad(String depart , String arrive){
+          
+           Road R = new Road();
+           List<Road> list = new ArrayList<>();
+
+            try {
+                
+                    String req = "select * from road where CityD="+depart+" and CityR="+arrive+"" ;
+                    Statement statement = MyConnection.getInstance().createStatement();
+                    ResultSet resultat = statement.executeQuery(req);
+                    
+                    
+                    while(resultat.next())
+                    {
+                        R.setId(resultat.getInt(1));
+                        R.setDriver(resultat.getString(2));
+                        R.setPrice(resultat.getFloat(3));
+                        R.setSeat(resultat.getInt(4));
+                        R.setCityD(resultat.getString(5));
+                        R.setCityR(resultat.getString(6));
+                        R.setDateD(resultat.getDate(7));
+                        R.setDateR(resultat.getDate(8));
+                        R.setHourD(resultat.getString(9));
+                        R.setHourR(resultat.getString(10));
+                        R.setCar(resultat.getString(11));
+                        
+                        list.add(R);
+                    }
+            } catch (SQLException ex) {
+                System.out.println("Error : "+ex.getMessage());
+            }
+        return list;
+            
+        
+           
+       }
+       
 }

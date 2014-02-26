@@ -19,6 +19,11 @@ public class RoadListGUI  extends AbstractTableModel{
           RoadDAO rdao = new RoadDAO();
                   RoadList=rdao.DisplayAllRoad();
       }
+      public RoadListGUI(String a , String b)
+      {
+          RoadDAO rdao = new RoadDAO();
+                  RoadList=rdao.RechercherRoad(a, b);
+      }
        @Override
     public int getRowCount() {
         return RoadList.size();

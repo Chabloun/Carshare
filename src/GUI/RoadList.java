@@ -64,6 +64,7 @@ public class RoadList extends javax.swing.JFrame {
         Color HeaderColorBackground = new Color(34,168,108);
         header.setBackground(HeaderColorBackground);
     }
+
     
     
 
@@ -83,6 +84,11 @@ public class RoadList extends javax.swing.JFrame {
         RoadList = new javax.swing.JTable();
         Add = new javax.swing.JButton();
         Delete = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        depart = new javax.swing.JTextField();
+        arrive = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         User = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -131,11 +137,26 @@ public class RoadList extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setText("jLabel2");
+
+        depart.setText("jTextField1");
+
+        arrive.setText("jTextField2");
+
+        jLabel3.setText("Search");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
         User.setText("Users");
         User.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
             public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
             }
             public void menuSelected(javax.swing.event.MenuEvent evt) {
                 UserMenuSelected(evt);
@@ -158,14 +179,29 @@ public class RoadList extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(495, 495, 495)
+                                .addComponent(jLabel1)
+                                .addGap(54, 54, 54)
+                                .addComponent(depart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(60, 60, 60)
+                                .addComponent(arrive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3)))
+                        .addGap(0, 51, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
-                .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(212, 212, 212))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +211,14 @@ public class RoadList extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Delete))
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(depart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(arrive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(57, 57, 57))
         );
 
         pack();
@@ -206,8 +249,53 @@ AffichageUserGui u=new AffichageUserGui();    }//GEN-LAST:event_UserActionPerfor
          int[] selection =RoadList.getSelectedRows();
         for(int i = selection.length - 1; i >= 0; i--){
             modele.RemoveRoad(selection[i]);
+        }
     }//GEN-LAST:event_DeleteMouseClicked
-    }
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        String departure = depart.getText();
+        String arrival = arrive.getText();
+        RoadListGUI modele2 = new RoadListGUI(departure, arrival);
+        
+        RoadList.setAutoCreateRowSorter(true);
+        
+        Color c = new Color(63,70,73);
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(RoadList.getModel());
+        jScrollPane1.setBorder(null);
+        RoadList.setRowSorter(sorter);
+        RoadList.setFillsViewportHeight(true);
+        RoadList.setShowHorizontalLines(false);
+        RoadList.setShowVerticalLines(true);
+        JTableHeader header = RoadList.getTableHeader();
+        Color bgcolor = new Color(45,47,49);
+        Color focolor = new Color(244,244,244);
+        header.setBackground(bgcolor);
+        header.setForeground(focolor);
+        header.setBorder(null);
+        
+        
+         getContentPane().setBackground(c); 
+          DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+            renderer.setHorizontalAlignment(SwingConstants.CENTER);
+            TableColumn AlignementCol;
+            for(int i = 0; i < modele2.getColumnCount(); i++)
+            {
+                AlignementCol= RoadList.getColumnModel().getColumn(i);
+                AlignementCol.setCellRenderer(renderer);
+            } 
+            
+             for(int i = 0; i < modele2.getColumnCount(); i++)
+            {
+                TableColumn column = RoadList.getColumnModel().getColumn(i);
+                column.setHeaderRenderer(new CustomCellRender());
+            }
+        //end set header border:disabled
+        Color HeaderColorBackground = new Color(34,168,108);
+        header.setBackground(HeaderColorBackground);
+        
+    }//GEN-LAST:event_jLabel3MouseClicked
+    
     /**
      * @param args the command line arguments
      */
@@ -248,6 +336,11 @@ AffichageUserGui u=new AffichageUserGui();    }//GEN-LAST:event_UserActionPerfor
     private javax.swing.JLabel Delete;
     private javax.swing.JTable RoadList;
     private javax.swing.JMenu User;
+    private javax.swing.JTextField arrive;
+    private javax.swing.JTextField depart;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
