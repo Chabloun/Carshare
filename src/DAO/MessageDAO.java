@@ -52,17 +52,19 @@ public class MessageDAO {
         }
     } 
        
-        public List<Message> DisplayAllMessages (){
+        public List<Message> DisplayAllMessagesRecieved (){
 
 
-        List<Message> listemsg = new ArrayList<Message>();
+        List<Message> listemsg = new ArrayList<>();
 
-        String requete = "select * from message";
+        String requete = "select * from message where Reciever = 'Admin' ";
         try {
+           
            Statement statement = MyConnection.getInstance()
                    .createStatement();
+           
             ResultSet resultat = statement.executeQuery(requete);
-
+            
             while(resultat.next()){
                 Message msg =new Message();
                 msg.setId_message(resultat.getInt(1));
@@ -80,7 +82,60 @@ public class MessageDAO {
             return null;
         }
     }
+        
+        
+        public List<Message> DisplayAllMessagesSent (){
 
+
+        List<Message> listemsg = new ArrayList<>();
+
+        String requete = "select * from message where Sender = 'Admin' ";
+        try {
+           
+           Statement statement = MyConnection.getInstance()
+                   .createStatement();
+           
+            ResultSet resultat = statement.executeQuery(requete);
+            
+            while(resultat.next()){
+                Message msg =new Message();
+                msg.setId_message(resultat.getInt(1));
+                msg.setFrom(resultat.getString(2));
+                msg.setTo(resultat.getString(3));
+                msg.setObject(resultat.getString(4));
+                msg.setContent(resultat.getString(5));
+
+                listemsg.add(msg);
+            }
+            return listemsg;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+            return null;
+        }
+    }
+   public void ViewMessage (int id)
+   {
+        String requete = "select * from message where Id=?";
+        try {
+           Statement statement = MyConnection.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
+                Message msg =new Message();
+                msg.setId_message(resultat.getInt(1));
+                msg.setFrom(resultat.getString(2));
+                msg.setTo(resultat.getString(3));
+                msg.setObject(resultat.getString(4));
+                msg.setContent(resultat.getString(5));
+
+              
+            
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+        }
+   }
 
     
 }
