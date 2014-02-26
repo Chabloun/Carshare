@@ -22,7 +22,7 @@ import java.util.List;
 public class RoadDAO {
      public void AddRoad(Road r){
 
-        String requete = "insert into road (Driver,Price,Seat,CityD,CityR,Round) values (?,?,?,?,?,?)";
+        String requete = "insert into road (Driver,Price,Seat,CityD,CityR,Round,DateD,DateR,HourD,HourR,Car) values (?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setString(1, r.getDriver());
@@ -31,7 +31,12 @@ public class RoadDAO {
             ps.setString(4,r.getCityD());
             ps.setString(5,r.getCityR());
             ps.setInt(6,r.getRound());
-         
+            ps.setDate(7,r.getDateD());
+            ps.setDate(8,r.getDateR());
+            ps.setString(9,r.getHourD());
+            ps.setString(10,r.getHourR());
+            ps.setString(11,r.getCar());
+            
             ps.executeUpdate();
             System.out.println("Successfully added");
         } catch (SQLException ex) {

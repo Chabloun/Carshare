@@ -1,6 +1,8 @@
 
 package ENTITIES;
 
+import java.sql.Date;
+
 /**
  *
  * @author Omar
@@ -14,8 +16,30 @@ public class Road {
     private String CityR;
     private int Seat;
     private int Round;
-   
-   public Road(){
+    private Date DateD ;
+    private Date DateR ;
+    private String HourD;
+    private String HourR;
+    private String Car;
+
+    public Road( String Driver,float Price,  int Seat,String CityD, String CityR,  int Round, Date DateD, Date DateR, String HourD, String HourR, String Car) {
+       
+        
+        this.Driver = Driver;
+        this.Price = Price;
+         this.Seat = Seat;
+        this.CityD = CityD;
+        this.CityR = CityR;
+       
+        this.Round = Round;
+        this.DateD = DateD;
+        this.DateR = DateR;
+        this.HourD = HourD;
+        this.HourR = HourR;
+        this.Car = Car;
+    }
+
+    public Road(){
        this.Id=0;
         this.Price = 0;
         this.Driver = "";
@@ -23,16 +47,55 @@ public class Road {
         this.CityR = "";
         this.Seat =0;
         this.Round = 0;
-   }
-
-    public Road(String Driver,float Price  ,int Seat ,String CityD, String CityR, int Round) {
-        this.Price = Price;
-        this.Driver = Driver;
-        this.CityD = CityD;
-        this.CityR = CityR;
-        this.Seat = Seat;
-        this.Round = Round;
+        this.DateD=new Date(2014-01-01);
+        this.DateR=new Date(2014-01-01);
+        this.HourD="";
+        this.HourR="";
+        this.Car="";
+         }
+    
+    public void setDateD(Date DateD) {
+        this.DateD = DateD;
     }
+
+    public void setDateR(Date DateR) {
+        this.DateR = DateR;
+    }
+
+    public void setHourD(String HourD) {
+        this.HourD = HourD;
+    }
+
+    public void setHourR(String HourR) {
+        this.HourR = HourR;
+    }
+
+    public void setCar(String Car) {
+        this.Car = Car;
+    }
+
+    public Date getDateD() {
+        return DateD;
+    }
+
+    public Date getDateR() {
+        return DateR;
+    }
+
+    public String getHourD() {
+        return HourD;
+    }
+
+    public String getHourR() {
+        return HourR;
+    }
+
+    public String getCar() {
+        return Car;
+    }
+    
+   
+   
     
     public String getCityD() {
         return CityD;
