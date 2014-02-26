@@ -38,9 +38,9 @@ public class AuthClient extends javax.swing.JFrame {
     private void initComponents() {
 
         checkLabel = new javax.swing.JLabel();
+        Connect = new javax.swing.JButton();
         login = new javax.swing.JTextField();
         pwd = new javax.swing.JPasswordField();
-        Connect = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,18 +57,6 @@ public class AuthClient extends javax.swing.JFrame {
         });
         getContentPane().add(checkLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 272, 20, 20));
 
-        login.setBackground(new java.awt.Color(33, 35, 36));
-        login.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        login.setForeground(new java.awt.Color(220, 220, 220));
-        login.setBorder(null);
-        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 280, 50));
-
-        pwd.setBackground(new java.awt.Color(33, 35, 36));
-        pwd.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        pwd.setForeground(new java.awt.Color(220, 220, 220));
-        pwd.setBorder(null);
-        getContentPane().add(pwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 280, 50));
-
         Connect.setBackground(new java.awt.Color(34, 168, 90));
         Connect.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         Connect.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,6 +68,18 @@ public class AuthClient extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Connect, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 360, 60));
+
+        login.setBackground(new java.awt.Color(33, 35, 36));
+        login.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        login.setForeground(new java.awt.Color(220, 220, 220));
+        login.setBorder(null);
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 280, 50));
+
+        pwd.setBackground(new java.awt.Color(33, 35, 36));
+        pwd.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        pwd.setForeground(new java.awt.Color(220, 220, 220));
+        pwd.setBorder(null);
+        getContentPane().add(pwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 280, 50));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/authentification/background.png"))); // NOI18N
         Background.setText("Login");
