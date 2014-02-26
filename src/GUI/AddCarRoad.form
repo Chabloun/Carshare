@@ -59,7 +59,6 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="non" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="date" min="-2" max="-2" attributes="0"/>
                           <Component id="seat" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="117" max="-2" attributes="0"/>
                       </Group>
@@ -103,11 +102,8 @@
                   <Component id="oui" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="non" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  <Component id="date" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -203,8 +199,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Non"/>
       </Properties>
-    </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="date">
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
