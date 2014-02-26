@@ -37,56 +37,56 @@ public class AuthClient extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        checkLabel = new javax.swing.JLabel();
         login = new javax.swing.JTextField();
-        Connect = new javax.swing.JButton();
         pwd = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        Connect = new javax.swing.JButton();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(34, 168, 108));
+        setMaximumSize(new java.awt.Dimension(500, 449));
+        setMinimumSize(new java.awt.Dimension(500, 479));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Connect.setText("Connect");
+        checkLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        checkLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkLabelMouseClicked(evt);
+            }
+        });
+        getContentPane().add(checkLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 272, 20, 20));
+
+        login.setBackground(new java.awt.Color(33, 35, 36));
+        login.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        login.setForeground(new java.awt.Color(220, 220, 220));
+        login.setBorder(null);
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 280, 50));
+
+        pwd.setBackground(new java.awt.Color(33, 35, 36));
+        pwd.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        pwd.setForeground(new java.awt.Color(220, 220, 220));
+        pwd.setBorder(null);
+        getContentPane().add(pwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 280, 50));
+
+        Connect.setBackground(new java.awt.Color(34, 168, 90));
+        Connect.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        Connect.setForeground(new java.awt.Color(255, 255, 255));
+        Connect.setText("Login");
+        Connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Connect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConnectActionPerformed(evt);
             }
         });
+        getContentPane().add(Connect, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 360, 60));
 
-        jLabel1.setText("Login :");
-
-        jLabel2.setText("Password :");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Connect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(login)
-                    .addComponent(pwd))
-                .addContainerGap(154, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(47, 47, 47)
-                .addComponent(Connect)
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/authentification/background.png"))); // NOI18N
+        Background.setText("Login");
+        Background.setMaximumSize(new java.awt.Dimension(500, 474));
+        Background.setMinimumSize(new java.awt.Dimension(500, 474));
+        Background.setPreferredSize(new java.awt.Dimension(500, 474));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,6 +113,10 @@ public class AuthClient extends javax.swing.JFrame {
             }
 
     }//GEN-LAST:event_ConnectActionPerformed
+
+    private void checkLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkLabelMouseClicked
+        checkLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/authentification/check.png")));
+    }//GEN-LAST:event_checkLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -150,9 +154,9 @@ public class AuthClient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Background;
     private javax.swing.JButton Connect;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel checkLabel;
     private javax.swing.JTextField login;
     private javax.swing.JPasswordField pwd;
     // End of variables declaration//GEN-END:variables
