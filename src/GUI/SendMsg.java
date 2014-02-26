@@ -8,6 +8,7 @@ package GUI;
 
 import DAO.MessageDAO;
 import ENTITIES.Message;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +22,8 @@ public class SendMsg extends javax.swing.JFrame {
      */
     public SendMsg() {
         initComponents();
+       Color JframeColor = new Color(63,70,73);
+        getContentPane().setBackground(JframeColor);
     }
 
     /**
@@ -49,14 +52,21 @@ public class SendMsg extends javax.swing.JFrame {
 
         jLabel3.setText("Message:");
 
+        Jto.setBorder(null);
+
+        Jobject.setBorder(null);
         Jobject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JobjectActionPerformed(evt);
             }
         });
 
+        jScrollPane1.setBackground(new java.awt.Color(63, 71, 73));
+
         Jmsg.setColumns(20);
         Jmsg.setRows(5);
+        Jmsg.setBorder(null);
+        Jmsg.setCaretColor(new java.awt.Color(240, 240, 240));
         jScrollPane1.setViewportView(Jmsg);
 
         jButton1.setText("Send");
@@ -123,7 +133,7 @@ public class SendMsg extends javax.swing.JFrame {
         msg.setContent(Jmsg.getText());
         
         mdao.SendMessage(msg);
-        JOptionPane.showMessageDialog(this, "Message Envoyé");
+   
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
