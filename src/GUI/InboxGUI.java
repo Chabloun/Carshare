@@ -91,7 +91,7 @@ public class InboxGUI extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(255, 0, 0));
         jScrollPane1.setBorder(null);
 
-        jTable1.setBackground(new java.awt.Color(102, 102, 102));
+        jTable1.setBackground(new java.awt.Color(46, 60, 50));
         jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTable1.setForeground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(modele);

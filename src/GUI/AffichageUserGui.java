@@ -99,10 +99,8 @@ public class AffichageUserGui extends javax.swing.JFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 0, 0));
         jScrollPane1.setBorder(null);
-        jScrollPane1.setOpaque(true);
 
         jTable1.setBackground(new java.awt.Color(45, 47, 49));
-        jTable1.setBorder(null);
         jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTable1.setForeground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(modele);
