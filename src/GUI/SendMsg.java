@@ -35,87 +35,58 @@ public class SendMsg extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         Jto = new javax.swing.JTextField();
         Jobject = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
         Jmsg = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(496, 650));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("To:");
-
-        jLabel2.setText("Object:");
-
-        jLabel3.setText("Message:");
-
+        Jto.setBackground(new java.awt.Color(51, 53, 55));
+        Jto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Jto.setForeground(new java.awt.Color(220, 220, 220));
         Jto.setBorder(null);
+        getContentPane().add(Jto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 124, 370, 40));
 
+        Jobject.setBackground(new java.awt.Color(51, 53, 55));
+        Jobject.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Jobject.setForeground(new java.awt.Color(220, 220, 220));
         Jobject.setBorder(null);
         Jobject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JobjectActionPerformed(evt);
             }
         });
+        getContentPane().add(Jobject, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 215, 370, 40));
 
-        jScrollPane1.setBackground(new java.awt.Color(63, 71, 73));
-
+        Jmsg.setBackground(new java.awt.Color(51, 53, 55));
         Jmsg.setColumns(20);
+        Jmsg.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Jmsg.setForeground(new java.awt.Color(220, 220, 220));
         Jmsg.setRows(5);
         Jmsg.setBorder(null);
-        Jmsg.setCaretColor(new java.awt.Color(240, 240, 240));
-        jScrollPane1.setViewportView(Jmsg);
+        getContentPane().add(Jmsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 334, 370, 190));
 
-        jButton1.setText("Send");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Send_out.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel2MouseExited(evt);
             }
         });
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, 100, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Jto)
-                    .addComponent(Jobject)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
-                .addContainerGap(112, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(25, 25, 25))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(Jto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(Jobject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/CONTACT_FORM_BIG_1.png"))); // NOI18N
+        BG.setPreferredSize(new java.awt.Dimension(500, 650));
+        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -124,8 +95,8 @@ public class SendMsg extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JobjectActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       MessageDAO mdao = new MessageDAO();
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        MessageDAO mdao = new MessageDAO();
         Message msg = new Message();
         msg.setFrom("Admin");
         msg.setTo(Jto.getText());
@@ -135,7 +106,15 @@ public class SendMsg extends javax.swing.JFrame {
         mdao.SendMessage(msg);
    
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Send_click.png")));
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Send_out.png")));
+    }//GEN-LAST:event_jLabel2MouseExited
 
     /**
      * @param args the command line arguments
@@ -173,13 +152,10 @@ public class SendMsg extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BG;
     private javax.swing.JTextArea Jmsg;
     private javax.swing.JTextField Jobject;
     private javax.swing.JTextField Jto;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
