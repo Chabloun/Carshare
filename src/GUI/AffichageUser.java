@@ -21,7 +21,20 @@ import javax.swing.table.TableColumn;
  * @author yahia
  */
 public class AffichageUser extends AbstractTableModel{
-    String[] headers={"Login","Password","Lasr Name","First Name","Address","Email","Birth Date","City","Rank"};
+    String[] headers={  "Login",
+                        "Password",
+                        "Lasr Name",
+                        "First Name",
+                        "Sexe",
+                        "Address",
+                        "Email",
+                        "Birth Date",
+                        "City",
+                        "Image",
+                        "Rank",
+                        "Inscription Date",
+                        "Blocked"
+    };
     List<User> ListUser = new ArrayList<>();
     
     public AffichageUser()
@@ -58,15 +71,23 @@ public class AffichageUser extends AbstractTableModel{
             case 3:
                 return ListUser.get(rowIndex).getFirstName();
             case 4:
-                return ListUser.get(rowIndex).getAddress();
+                return ListUser.get(rowIndex).getSexe();
             case 5:
-                return ListUser.get(rowIndex).getEmail();
+                return ListUser.get(rowIndex).getAddress();
             case 6:
-                return ListUser.get(rowIndex).getDateB();
+                return ListUser.get(rowIndex).getEmail();
             case 7:
-                return ListUser.get(rowIndex).getCity();
+                return ListUser.get(rowIndex).getDateB();
             case 8:
+                return ListUser.get(rowIndex).getCity();
+            case 9:
+                return ListUser.get(rowIndex).getImg();
+            case 10:
                 return ListUser.get(rowIndex).getRank();
+            case 11:
+                return ListUser.get(rowIndex).getDateI();
+            case 12:
+                return ListUser.get(rowIndex).getBlocked();
             default:
                 return null;
         }
@@ -89,19 +110,31 @@ public class AffichageUser extends AbstractTableModel{
                     user.setFirstName((String)aValue);
                     break;
                 case 4:
-                    user.setAddress((String)aValue);
+                    user.setSexe((String)aValue);
                     break;
                 case 5:
-                    user.setEmail((String)aValue);
+                    user.setAddress((String)aValue);
                     break;
                 case 6:
-                    user.setDateB((Date)aValue);
+                    user.setEmail((String)aValue);
                     break;
                 case 7:
-                    user.setCity((String)aValue);
+                    user.setDateB((Date)aValue);
                     break;
                 case 8:
+                    user.setCity((String)aValue);
+                    break;
+                case 9:
+                    user.setImg((String)aValue);
+                    break;
+                case 10:
                     user.setRank((int)aValue);
+                    break;
+                case 11:
+                    user.setDateI((Date)aValue);
+                    break;
+                case 12:
+                    user.setBlocked((int)aValue);
                     break;
             }
             if(columnIndex!=0)userDAO.updateUser(user);
@@ -111,23 +144,31 @@ public class AffichageUser extends AbstractTableModel{
     public Class getColumnClass(int column) {
         switch (column) {
             case 0:
-                return String.class;
+                return String.class;//Login
             case 1:
-                return String.class;
+                return String.class;//Password
             case 2:
-                return String.class;
+                return String.class;//LastName
             case 3:
-                return String.class;
+                return String.class;//FirstName
             case 4:
-                return String.class;
+                return String.class;//Sexe
             case 5:
-                return String.class;
+                return String.class;//Address
             case 6:
-                return Date.class;
+                return String.class;//Email
             case 7:
-                return String.class;
+                return Date.class;//DateB
             case 8:
-                return Integer.class;
+                return String.class;//City
+            case 9:
+                return String.class;//Img
+            case 10:
+                return int.class;//Rank
+            case 11:
+                return Date.class;//DateI
+            case 12:
+                return int.class;//Blocked
             default:
                 return String.class;
                 }

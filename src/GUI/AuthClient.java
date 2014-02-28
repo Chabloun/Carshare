@@ -6,14 +6,10 @@
 
 package GUI;
 
-import DAO.ClientDAO;
-import ENTITIES.Client;
-import UTIL.MyConnection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import DAO.UserDAO;
+import ENTITIES.User;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -26,6 +22,8 @@ public class AuthClient extends javax.swing.JFrame {
      */
     public AuthClient() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -92,25 +90,18 @@ public class AuthClient extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnectActionPerformed
-        ClientDAO cdao = new ClientDAO();
-        Client client = new Client();
-        String requete = "select * from client where Login=? and Password=?";
-        try 
+        UserDAO cdao = new UserDAO();
+        User client = new User();
+        boolean there = cdao.Authentification(login.getText(), pwd.getText());
+        if(there)
         {
-            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-            ps.setString(1,login.getText());
-            ps.setString(2, pwd.getText());
-            ResultSet resultat = ps.executeQuery();
-            if (resultat.next())
-            {
-               System.out.println("Succes");
-            } else {
-                
-                System.out.println("fail");
-            }
-        }catch(SQLException ex) {
-                    
-            }
+            RoadList roadList = new RoadList();
+            roadList.setVisible(true);
+            this.setVisible(false);
+        }else
+        {
+            System.out.println("false");
+        }
 
     }//GEN-LAST:event_ConnectActionPerformed
 

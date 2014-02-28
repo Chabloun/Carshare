@@ -232,7 +232,20 @@ public class AffichageUserGui extends javax.swing.JFrame {
         Random rand = new Random();
         int  n = rand.nextInt(50) + 1;
         String Number= Integer.toString(n);
-        User newuser= new User("Client "+Number, "SDQSD", "dfgfdg", "qsdqds", "sqdqsd", "rerz@erezr.com", java.sql.Date.valueOf("1992-08-01"), "tunis", 1);
+        User newuser= new User("Client "+Number, 
+                               "UserPassword", 
+                               "UserLastName", 
+                               "UserFirstName", 
+                               "UserSexe", 
+                               "UserAddress",
+                               "UserEmail", 
+                               java.sql.Date.valueOf("1992-08-01"), 
+                               "UserCity",
+                               "UserImg", 
+                               1,
+                               java.sql.Date.valueOf("1992-08-01"),
+                               0
+                              );
         modele.add_User(newuser);
     }//GEN-LAST:event_AddUserLabelMouseClicked
 
