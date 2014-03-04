@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.sql.Date;
 /**
  *
  * @author omar
@@ -68,7 +68,11 @@ public class RoadDAO {
             ps.setString(5, r.getCityR());
             ps.setInt(6, r.getRound());
             ps.setInt(7, r.getId());
-
+            ps.setDate(8,r.getDateD());
+            ps.setDate(9,r.getDateR());
+            ps.setString(10,r.getHourD());
+            ps.setString(11,r.getHourR());
+            ps.setString(12,r.getCar());
             
             ps.executeUpdate();
             System.out.println("Road updated successfully");
@@ -98,7 +102,11 @@ public class RoadDAO {
                 road.setCityD(resultat.getString(5));
                 road.setCityR(resultat.getString(6));
                 road.setRound(resultat.getInt(7));
-                
+                road.setDateD(resultat.getDate(8));
+                road.setDateR(resultat.getDate(9));
+                road.setHourD(resultat.getString(10));
+                road.setHourR(resultat.getString(11));
+                road.setCar(resultat.getString(12));
                 RoadList.add(road);
             }
             return RoadList;
