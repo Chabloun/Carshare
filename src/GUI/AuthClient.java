@@ -95,9 +95,9 @@ public class AuthClient extends javax.swing.JFrame {
         boolean there = cdao.Authentification(login.getText(), pwd.getText());
         if(there)
         {
-            RoadList roadList = new RoadList();
-            roadList.setVisible(true);
-            this.setVisible(false);
+            AffichageUserGui a= new AffichageUserGui();
+            a.setVisible(true);
+            this.dispose();
         }else
         {
             System.out.println("false");
