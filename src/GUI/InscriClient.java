@@ -6,8 +6,8 @@
 
 package GUI;
 
-import DAO.ClientDAO;
-import ENTITIES.Client;
+import DAO.UserDAO;
+import ENTITIES.User;
 import java.sql.Date;
 import javax.swing.JOptionPane;
 
@@ -258,8 +258,8 @@ public class InscriClient extends javax.swing.JFrame {
 
     private void InscritActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InscritActionPerformed
         // TODO add your handling code here:
-        ClientDAO Cdao = new ClientDAO();
-        Client c = new Client();
+        UserDAO Cdao = new UserDAO();
+        User c = new User();
         c.setLogin(Login.getText());
         c.setPassword(pwd.getPassword().toString());
         c.setFirstName(FirstName.getText());
@@ -276,7 +276,7 @@ public class InscriClient extends javax.swing.JFrame {
         c.setEmail(Email.getText());
         c.setDateB(java.sql.Date.valueOf("1992-08-01"));
         c.setCity(City.getText());
-        Cdao.insertClient(c);
+        Cdao.insertUser(c);
         JOptionPane.showMessageDialog(this,"Ajout effectué");
         
         

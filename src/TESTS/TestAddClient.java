@@ -6,8 +6,8 @@
 
 package TESTS;
 
-import DAO.ClientDAO;
-import ENTITIES.Client;
+import DAO.UserDAO;
+import ENTITIES.User;
 import java.sql.Date;
 
 /**
@@ -16,8 +16,8 @@ import java.sql.Date;
  */
 public class TestAddClient {
      public static void main(String[] args) {
-        Client client = new Client();
-        ClientDAO cDAO = new ClientDAO();
+        User client = new User();
+        UserDAO cDAO = new UserDAO();
         client.setLogin("Ryis");
         client.setPassword("mdr");
         client.setLastName("Ben AMor");
@@ -27,6 +27,6 @@ public class TestAddClient {
         Date d = new Date(1992, 12, 8);
         client.setDateB(d);
         client.setCity("La marsa");
-        cDAO.insertClient(client);
+        cDAO.insertUser(client);
     }
 }

@@ -21,7 +21,7 @@ import java.util.List;
 public class UserDAO {
 
      public void insertUser(User d){
-        String requete = "insert into user (Login,Password,LastName,FirstName,Address,Email,DateB,City,Rank) values (?,?,?,?,?,?,?,?,?)";
+        String requete = "insert into user (Login,Password,LastName,FirstName,Sexe,Address,Email,DateB,City,Img,Rank,DateI,Blocked) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps;
             ps = MyConnection.getInstance().prepareStatement(requete);
@@ -29,11 +29,15 @@ public class UserDAO {
             ps.setString(2, d.getPassword());
             ps.setString(3, d.getLastName());
             ps.setString(4, d.getFirstName());
-            ps.setString(5, d.getAddress());
-            ps.setString(6, d.getEmail());
-            ps.setDate(7, d.getDateB());
-            ps.setString(8, d.getCity());
-            ps.setInt(9,d.getRank());
+            ps.setString(5, d.getSexe());
+            ps.setString(6, d.getAddress());
+            ps.setString(7, d.getEmail());
+            ps.setDate(8, d.getDateB());
+            ps.setString(9, d.getCity());
+            ps.setString(10, d.getImg());
+            ps.setInt(11,d.getRank());
+            ps.setDate(12, d.getDateI());
+            ps.setInt(13,d.getBlocked());
             ps.executeUpdate();
             System.out.println("User added successfully");
         } catch (SQLException ex) {
@@ -43,19 +47,23 @@ public class UserDAO {
 
 
     public void updateUser(User d){
-        String requete = "update User set Login=?,Password=?,LastName=?,FirstName=?,Address=?,Email=?,DateB=?,City=?,Rank=? where Login=?";
+        String requete = "update User set Login=?,Password=?,LastName=?,FirstName=?,Sexe=?,Address=?,Email=?,DateB=?,City=?,Img=?,Rank=?,DateI=?,Blocked=? where Login=?";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setString(1, d.getLogin());
             ps.setString(2, d.getPassword());
             ps.setString(3, d.getLastName());
             ps.setString(4, d.getFirstName());
-            ps.setString(5, d.getAddress());
-            ps.setString(6, d.getEmail());
-            ps.setDate(7, d.getDateB());
-            ps.setString(8, d.getCity());
-            ps.setInt(9,d.getRank());
-            ps.setString(10, d.getLogin());
+            ps.setString(5, d.getSexe());
+            ps.setString(6, d.getAddress());
+            ps.setString(7, d.getEmail());
+            ps.setDate(8, d.getDateB());
+            ps.setString(9, d.getCity());
+            ps.setString(10, d.getImg());
+            ps.setInt(11,d.getRank());
+            ps.setDate(12, d.getDateI());
+            ps.setInt(13,d.getBlocked());
+            ps.setString(14, d.getLogin());
             ps.executeUpdate();
             System.out.println("User updated successfully");
         } catch (SQLException ex) {
@@ -91,11 +99,15 @@ public class UserDAO {
                 user.setPassword(resultat.getString(3));
                 user.setLastName(resultat.getString(4));
                 user.setFirstName(resultat.getString(5));
-                user.setAddress(resultat.getString(6));
-                user.setEmail(resultat.getString(7));
-                user.setDateB(resultat.getDate(8));
-                user.setCity(resultat.getString(9));
-                user.setRank(resultat.getInt(10));
+                user.setSexe(resultat.getString(6));
+                user.setAddress(resultat.getString(7));
+                user.setEmail(resultat.getString(8));
+                user.setDateB(resultat.getDate(9));
+                user.setCity(resultat.getString(10));
+                user.setImg(resultat.getString(11));
+                user.setRank(resultat.getInt(12));
+                user.setDateI(resultat.getDate(13));
+                user.setBlocked(resultat.getInt(14));
             }
             return user;
 
@@ -104,6 +116,28 @@ public class UserDAO {
             System.out.println("Error : "+ex.getMessage());
             return null;
         }
+    }
+    
+    public boolean Authentification(String login,String pwd){
+        String requete = "select * from user where Login=? and Password=?";
+        try 
+        {
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ps.setString(1,login);
+            ps.setString(2,pwd);
+            ResultSet resultat = ps.executeQuery();
+            if (resultat.next())
+            {
+               System.out.println("returned true");
+               return true;
+            } else {
+                System.out.println("returned false");
+                return false;
+            }
+        }catch(SQLException ex) {
+            System.out.println("Exception : "+ex.getMessage());        
+        }
+        return false;
     }
 
     public List<User> DisplayAllUsers (){
@@ -123,11 +157,15 @@ public class UserDAO {
                 user.setPassword(resultat.getString(3));
                 user.setLastName(resultat.getString(4));
                 user.setFirstName(resultat.getString(5));
-                user.setAddress(resultat.getString(6));
-                user.setEmail(resultat.getString(7));
-                user.setDateB(resultat.getDate(8));
-                user.setCity(resultat.getString(9));
-                user.setRank(resultat.getInt(10));
+                user.setSexe(resultat.getString(6));
+                user.setAddress(resultat.getString(7));
+                user.setEmail(resultat.getString(8));
+                user.setDateB(resultat.getDate(9));
+                user.setCity(resultat.getString(10));
+                user.setImg(resultat.getString(11));
+                user.setRank(resultat.getInt(12));
+                user.setDateI(resultat.getDate(13));
+                user.setBlocked(resultat.getInt(14));
 
                 listeUsers.add(user);
             }

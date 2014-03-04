@@ -6,15 +6,6 @@
 
 package GUI;
 
-import DAO.ClientDAO;
-import ENTITIES.Client;
-import UTIL.MyConnection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Rissen
