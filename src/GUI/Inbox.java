@@ -97,5 +97,15 @@ public class Inbox extends AbstractTableModel{
         ListMsg.remove(rowIndex);
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
+    public void ShowAllSent()
+    {
+         MessageDAO MsgDAO = new  MessageDAO();
+        ListMsg = MsgDAO.DisplayAllMessagesSent();
+    }
+        public void ShowAllRecieved()
+    {
+         MessageDAO MsgDAO = new  MessageDAO();
+        ListMsg = MsgDAO.DisplayAllMessagesRecieved();
+    }
     
 }
