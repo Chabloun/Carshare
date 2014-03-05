@@ -80,6 +80,8 @@ public class InboxGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jMsgS = new javax.swing.JButton();
+        jMsgR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(63, 70, 73));
@@ -130,6 +132,20 @@ public class InboxGUI extends javax.swing.JFrame {
             }
         });
 
+        jMsgS.setText("Message Sent");
+        jMsgS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMsgSActionPerformed(evt);
+            }
+        });
+
+        jMsgR.setText("Message Recieved");
+        jMsgR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMsgRActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,11 +154,18 @@ public class InboxGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jMsgS))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jMsgR)
+                                .addGap(33, 33, 33)))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 787, Short.MAX_VALUE))
         );
@@ -157,7 +180,11 @@ public class InboxGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel3))
+                        .addComponent(jLabel3)
+                        .addGap(38, 38, 38)
+                        .addComponent(jMsgS)
+                        .addGap(18, 18, 18)
+                        .addComponent(jMsgR))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(194, 194, 194))
         );
@@ -193,6 +220,14 @@ public class InboxGUI extends javax.swing.JFrame {
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Delete_msg_Out.png")));
     }//GEN-LAST:event_jLabel3MouseExited
+
+    private void jMsgSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMsgSActionPerformed
+       modele.ShowAllSent();
+    }//GEN-LAST:event_jMsgSActionPerformed
+
+    private void jMsgRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMsgRActionPerformed
+        modele.ShowAllRecieved();
+    }//GEN-LAST:event_jMsgRActionPerformed
                                                 
                                       
 
@@ -237,6 +272,8 @@ public class InboxGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jMsgR;
+    private javax.swing.JButton jMsgS;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
