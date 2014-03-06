@@ -3,6 +3,8 @@ package GUI;
 
 import ENTITIES.Road;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.sql.Date;
 import java.util.Random;
@@ -28,6 +30,8 @@ public class RoadList extends javax.swing.JFrame {
      
     public RoadList() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         RoadList.setAutoCreateRowSorter(true);
         
         Color c = new Color(63,70,73);

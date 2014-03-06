@@ -78,7 +78,7 @@ public class MessageDAO {
             return listemsg;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+            System.out.println("MessageDAO : erreur lors du chargement des depots "+ex.getMessage());
             return null;
         }
     }
