@@ -9,6 +9,8 @@ package GUI;
 import DAO.UserDAO;
 import ENTITIES.User;
 import java.sql.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -258,7 +260,52 @@ public class InscriClient extends javax.swing.JFrame {
 
     private void InscritActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InscritActionPerformed
         // TODO add your handling code here:
-        UserDAO Cdao = new UserDAO();
+        
+        
+        Pattern patternpseudo = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*");
+        Matcher matcherpseudo = patternpseudo.matcher(Login.getText());
+        
+        
+        
+        if(matcherpseudo.matches() )
+        {
+            Pattern patternpwd = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*");
+            Matcher matcherpwd = patternpwd.matcher(pwd.getText());
+        
+        
+        
+            if(matcherpwd.matches() && pwd.getText().equals(cpwd.getText()) )
+            {
+            
+             Pattern patternnom = Pattern.compile("^[_A-Za-z-]([_A-Za-z-]+)*");
+            Matcher matchernom = patternnom.matcher(FirstName.getText());
+        
+                if (matchernom.matches())
+                {
+                        Pattern patternprenom = Pattern.compile("^[_A-Za-z-]([_A-Za-z-]+)*");
+                        Matcher matcherprenom = patternprenom.matcher(LastName.getText());
+        
+                        if (matcherprenom.matches())
+                          {
+                                   
+                              Pattern patternadd = Pattern.compile("^[_A-Za-z-]([_A-Za-z-]+)*");
+                                Matcher matcheradd = patternadd.matcher(Address.getText());
+        
+                        if (matcheradd.matches())
+                          {
+                              
+                                    Pattern patternmail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                                    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+                                    Matcher matchermail = patternmail.matcher(Email.getText());
+        
+                                        if (matchermail.matches())
+                                        {
+                                               Pattern patterncity = Pattern.compile("^[_A-Za-z-]([_A-Za-z-]+)*");
+                                               Matcher matchercity = patterncity.matcher(City.getText());
+                                        
+                                               if (matchercity.matches())
+                                                {             
+                                                        UserDAO Cdao = new UserDAO();
         User c = new User();
         c.setLogin(Login.getText());
         c.setPassword(pwd.getPassword().toString());
@@ -278,6 +325,40 @@ public class InscriClient extends javax.swing.JFrame {
         c.setCity(City.getText());
         Cdao.insertUser(c);
         JOptionPane.showMessageDialog(this,"Ajout effectué");
+        
+                                                }
+                                                else{
+                                                JOptionPane.showMessageDialog(this, " Fill all the fields please");
+                                            }
+                                        }
+                                        else{
+                                        JOptionPane.showMessageDialog(this, "Your Email is unvalid");
+                                            }
+                                     }
+                                else{
+                                JOptionPane.showMessageDialog(this, "Your Adress is unvalid");
+                                }
+                          }
+                        else{
+                        JOptionPane.showMessageDialog(this, "Your Last Name is unvalid");
+                            }
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Your First Name is unvalid");
+                }
+        
+               }
+               else {
+               JOptionPane.showMessageDialog(this, "Your Password is unvalid");
+
+               }
+            }
+        else {
+                JOptionPane.showMessageDialog(this, "Your Login is unvalid");
+
+            }
+        
+        
         
         
         
