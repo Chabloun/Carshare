@@ -10,6 +10,8 @@ import DAO.RoadDAO;
 import ENTITIES.Road;
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -94,6 +96,7 @@ public class AddCarRoad extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(non);
+        non.setSelected(true);
         non.setText("Non");
 
         car.setColumns(20);
@@ -190,7 +193,43 @@ public class AddCarRoad extends javax.swing.JFrame {
     }//GEN-LAST:event_ouiActionPerformed
 
     private void AjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterActionPerformed
-        RoadDAO rdao = new RoadDAO();
+       
+        
+        Pattern patternpseudo = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*");
+        Matcher matcherpseudo = patternpseudo.matcher(login.getText());
+        
+        
+        
+        if(matcherpseudo.matches() )
+        {
+            Pattern patternprix = Pattern.compile("^[0-9]{4,5}$");
+            Matcher matcherprix = patternprix.matcher(price.getText());
+        
+        
+        
+            if(matcherprix.matches() )
+            {
+                        Pattern patterncityd = Pattern.compile("^[_A-Za-z-]([_A-Za-z-]+)*");
+                        Matcher matchercityd = patterncityd.matcher(CityD.getText());
+        
+                        if (matchercityd.matches())
+                        {
+                            Pattern patterncityr = Pattern.compile("^[_A-Za-z-]([_A-Za-z-]+)*");
+                            Matcher matchercityr = patterncityr.matcher(CityR.getText());
+        
+                            if (matchercityr.matches())
+                            {
+                                Pattern patternseat = Pattern.compile("^[1-4]$");
+                                Matcher matcherseat = patternseat.matcher(seat.getValue().toString());
+        
+                                if (matcherseat.matches())
+                                    {
+                                                Pattern patterncar = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*");
+                                                Matcher matchercar = patterncar.matcher(car.getText());
+        
+                                                if (matchercar.matches())
+                                                {
+                                                         RoadDAO rdao = new RoadDAO();
         Road r = new Road();
         r.setDriver(login.getText());
         r.setPrice(parseFloat(price.getText()));
@@ -202,9 +241,39 @@ public class AddCarRoad extends javax.swing.JFrame {
             road=1;
         }
         r.setRound(road);
-      /*  r.setDate*/
         rdao.AddRoad(r);
         JOptionPane.showMessageDialog(this,"Ajout effectué");
+                                                }
+                                                else{
+                                                JOptionPane.showMessageDialog(this, "You have to add your car description");
+                                                    }
+                                    }
+                                else{
+                                   JOptionPane.showMessageDialog(this, "The number of seats must be different from 0");
+                                    }
+                                 
+                            }
+                            else{
+                            JOptionPane.showMessageDialog(this, "Your City R is unvalid");
+                            }
+                        }
+                         else{
+                        JOptionPane.showMessageDialog(this, "Your City D is unvalid");
+                            }
+            }
+            else{
+                 JOptionPane.showMessageDialog(this, "Your Price is unvalid");
+            }
+        }
+        
+        else {
+             JOptionPane.showMessageDialog(this, "Your Login is unvalid");
+        }
+        
+        
+        
+        
+       
     }//GEN-LAST:event_AjouterActionPerformed
 
     /**
