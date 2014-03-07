@@ -37,7 +37,7 @@ public class UserDAO {
             ps.setString(10, d.getImg());
             ps.setInt(11,d.getRank());
             ps.setDate(12, d.getDateI());
-            ps.setInt(13,d.getBlocked());
+            ps.setBoolean(13,d.getBlocked());
             ps.executeUpdate();
             System.out.println("User added successfully");
         } catch (SQLException ex) {
@@ -62,7 +62,7 @@ public class UserDAO {
             ps.setString(10, d.getImg());
             ps.setInt(11,d.getRank());
             ps.setDate(12, d.getDateI());
-            ps.setInt(13,d.getBlocked());
+            ps.setBoolean(13,d.getBlocked());
             ps.setString(14, d.getLogin());
             ps.executeUpdate();
             System.out.println("User updated successfully");
@@ -107,7 +107,7 @@ public class UserDAO {
                 user.setImg(resultat.getString(11));
                 user.setRank(resultat.getInt(12));
                 user.setDateI(resultat.getDate(13));
-                user.setBlocked(resultat.getInt(14));
+                user.setBlocked(resultat.getBoolean(14));
             }
             return user;
 
@@ -165,7 +165,7 @@ public class UserDAO {
                 user.setImg(resultat.getString(11));
                 user.setRank(resultat.getInt(12));
                 user.setDateI(resultat.getDate(13));
-                user.setBlocked(resultat.getInt(14));
+                user.setBlocked(resultat.getBoolean(14));
 
                 listeUsers.add(user);
             }

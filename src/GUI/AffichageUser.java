@@ -131,7 +131,7 @@ public class AffichageUser extends AbstractTableModel{
                     user.setDateI((Date)aValue);
                     break;
                 case 12:
-                    user.setBlocked((int)aValue);
+                    user.setBlocked((Boolean)aValue);
                     break;
             }
             if(columnIndex!=0)userDAO.updateUser(user);
@@ -165,7 +165,7 @@ public class AffichageUser extends AbstractTableModel{
             case 11:
                 return Date.class;//DateI
             case 12:
-                return int.class;//Blocked
+                return Boolean.class;//Blocked
             default:
                 return String.class;
                 }

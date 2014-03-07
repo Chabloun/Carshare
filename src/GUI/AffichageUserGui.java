@@ -17,6 +17,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.Arrays;
 import java.util.Random;
+import javax.swing.JFrame;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
@@ -35,6 +36,9 @@ public class AffichageUserGui extends javax.swing.JFrame {
     /** Creates new form affichageStock */
     public AffichageUserGui() {
         initComponents();
+        setSize(700, 500);
+        setMinimumSize(new Dimension(600, 0));
+        setMaximumSize(new Dimension(800, Integer.MAX_VALUE));
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(jTable1.getModel());
@@ -60,7 +64,11 @@ public class AffichageUserGui extends javax.swing.JFrame {
                 AlignementCol.setCellRenderer(renderer);
             } 
         //end set text alignement
-        
+            
+        //set blocked images
+            
+        //set blocked images
+            
         //set header border:disabled
             for(int i = 0; i < modeleUser.getColumnCount(); i++)
             {
@@ -70,6 +78,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
         //end set header border:disabled
         Color HeaderColorBackground = new Color(34,168,108);
         header.setBackground(HeaderColorBackground);
+        jTable1.getColumnModel().getColumn(12).setCellRenderer(new CustomCellRender_Blocked());
     }
 
     /** This method is called from within the constructor to
@@ -96,7 +105,11 @@ public class AffichageUserGui extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(63, 70, 73));
         setForeground(java.awt.Color.black);
-        setMinimumSize(new java.awt.Dimension(0, 600));
+        setMaximumSize(new java.awt.Dimension(1040, 600));
+        setMinimumSize(new java.awt.Dimension(1040, 600));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1040, 600));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         MenuAdvert.setBackground(new java.awt.Color(255, 51, 51));
@@ -127,7 +140,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
         getContentPane().add(MenuInbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 110, 60));
 
         MenuContainer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Menu_admin_users.png"))); // NOI18N
-        getContentPane().add(MenuContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        getContentPane().add(MenuContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 0, 0));
         jScrollPane1.setBorder(null);
@@ -142,7 +155,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
         jTable1.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1030, 355));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 990, 355));
 
         AddUserPanel.setBackground(new java.awt.Color(63, 70, 73));
         AddUserPanel.setMaximumSize(new java.awt.Dimension(32767, 40));
@@ -182,7 +195,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
         AddUserLabel.getAccessibleContext().setAccessibleName("LabelAddUser");
         AddUserLabel.getAccessibleContext().setAccessibleDescription("");
 
-        getContentPane().add(AddUserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 112, 46));
+        getContentPane().add(AddUserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 112, 46));
 
         RemoveUserPanel.setBackground(new java.awt.Color(63, 70, 73));
         RemoveUserPanel.setMaximumSize(new java.awt.Dimension(32767, 40));
@@ -219,7 +232,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
                 .addGap(0, 16, Short.MAX_VALUE))
         );
 
-        getContentPane().add(RemoveUserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 112, 46));
+        getContentPane().add(RemoveUserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 112, 46));
 
         jToolBar1.setRollover(true);
         getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 162, -1, -1));
@@ -252,7 +265,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
                                "UserImg", 
                                1,
                                java.sql.Date.valueOf("1992-08-01"),
-                               0
+                               false
                               );
         modeleUser.add_User(newuser);
     }//GEN-LAST:event_AddUserLabelMouseClicked
