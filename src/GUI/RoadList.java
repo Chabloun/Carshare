@@ -30,6 +30,7 @@ public class RoadList extends javax.swing.JFrame {
      
     public RoadList() {
         initComponents();
+        
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         RoadList.setAutoCreateRowSorter(true);
@@ -86,11 +87,11 @@ public class RoadList extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jScrollPane1 = new javax.swing.JScrollPane();
         RoadList = new javax.swing.JTable();
+        inboxMenu = new javax.swing.JLabel();
+        UserMenu = new javax.swing.JLabel();
         Delete = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        User = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jLabel1 = new javax.swing.JLabel();
 
         jMenu1.setText("File");
         jMenuBar2.add(jMenu1);
@@ -101,11 +102,14 @@ public class RoadList extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(102, 102, 255));
+        setMinimumSize(new java.awt.Dimension(0, 600));
+        setPreferredSize(new java.awt.Dimension(1040, 506));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setBackground(new java.awt.Color(63, 70, 73));
 
@@ -116,9 +120,25 @@ public class RoadList extends javax.swing.JFrame {
         RoadList.setGridColor(new java.awt.Color(102, 102, 102));
         RoadList.setRowHeight(60);
         RoadList.setSelectionBackground(new java.awt.Color(34, 168, 108));
-        RoadList.setShowHorizontalLines(false);
-        RoadList.setShowVerticalLines(false);
         jScrollPane1.setViewportView(RoadList);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1047, 418));
+
+        inboxMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inboxMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inboxMenuMouseClicked(evt);
+            }
+        });
+        getContentPane().add(inboxMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 40));
+
+        UserMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        UserMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UserMenuMouseClicked(evt);
+            }
+        });
+        getContentPane().add(UserMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 16, 80, 40));
 
         Delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Delete.png"))); // NOI18N
         Delete.setText("jLabel1");
@@ -127,6 +147,7 @@ public class RoadList extends javax.swing.JFrame {
                 DeleteMouseClicked(evt);
             }
         });
+        getContentPane().add(Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 100, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/AddRoad.png"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -135,54 +156,16 @@ public class RoadList extends javax.swing.JFrame {
                 jLabel4MouseClicked(evt);
             }
         });
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 100, -1));
 
-        User.setText("Users");
-        User.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                UserMenuSelected(evt);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Menu_admin_advert.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
             }
         });
-        User.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(User);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
-                        .addComponent(Delete, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 51, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(140, Short.MAX_VALUE))
-        );
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -190,15 +173,6 @@ public class RoadList extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         
     }//GEN-LAST:event_formWindowOpened
-
-    private void UserMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_UserMenuSelected
-       AffichageUserGui u=new AffichageUserGui();
-       u.setVisible(true);
-        
-    }//GEN-LAST:event_UserMenuSelected
-
-    private void UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserActionPerformed
-AffichageUserGui u=new AffichageUserGui();    }//GEN-LAST:event_UserActionPerformed
 
     private void DeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteMouseClicked
          int[] selection =RoadList.getSelectedRows();
@@ -211,8 +185,24 @@ AffichageUserGui u=new AffichageUserGui();    }//GEN-LAST:event_UserActionPerfor
 Random rand = new Random();
        int  n = rand.nextInt(50) + 1;
        String Number= Integer.toString(n);
-       Road road = new Road("Driver"+Number,1,1,"0","0",1,new Date(2011-1-1),new Date(2031-1-1),"","","");
+       Road road = new Road("Driver"+Number,1,1,"0","0","",new Date(2011-1-1),new Date(2031-1-1),"","","");
        modele.AddRoad(road);    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+       
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void inboxMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inboxMenuMouseClicked
+        InboxGUI a = new InboxGUI();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_inboxMenuMouseClicked
+
+    private void UserMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserMenuMouseClicked
+        AffichageUserGui a = new AffichageUserGui();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_UserMenuMouseClicked
     
     /**
      * @param args the command line arguments
@@ -252,12 +242,12 @@ Random rand = new Random();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Delete;
     private javax.swing.JTable RoadList;
-    private javax.swing.JMenu User;
+    private javax.swing.JLabel UserMenu;
+    private javax.swing.JLabel inboxMenu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
