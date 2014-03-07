@@ -40,6 +40,7 @@ public class AuthClient extends javax.swing.JFrame {
         login = new javax.swing.JTextField();
         pwd = new javax.swing.JPasswordField();
         Background = new javax.swing.JLabel();
+        LoginFb = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(34, 168, 108));
@@ -86,6 +87,15 @@ public class AuthClient extends javax.swing.JFrame {
         Background.setPreferredSize(new java.awt.Dimension(500, 474));
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 450));
 
+        LoginFb.setText("jLabel1");
+        LoginFb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoginFb.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LoginFbMouseClicked(evt);
+            }
+        });
+        getContentPane().add(LoginFb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 397, 235, 50));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -108,6 +118,10 @@ public class AuthClient extends javax.swing.JFrame {
     private void checkLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkLabelMouseClicked
         checkLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/authentification/check.png")));
     }//GEN-LAST:event_checkLabelMouseClicked
+
+    private void LoginFbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginFbMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoginFbMouseClicked
 
     /**
      * @param args the command line arguments
@@ -147,6 +161,7 @@ public class AuthClient extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
     private javax.swing.JButton Connect;
+    private javax.swing.JLabel LoginFb;
     private javax.swing.JLabel checkLabel;
     private javax.swing.JTextField login;
     private javax.swing.JPasswordField pwd;
