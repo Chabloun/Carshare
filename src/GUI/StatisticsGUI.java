@@ -25,12 +25,12 @@ public final class StatisticsGUI extends ApplicationFrame {
     
     public CategoryDataset createDataset() throws IOException {
         // 0. Création d'un diagramme.
+        Statistics statistics = new Statistics();
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
        //Valeurs statiques
-        dataset.addValue(0, "Users Connected", "Users");
-        dataset.addValue(12, "Users Subscribed", "Users");
-        dataset.addValue(25, "Taux de couverture Indoor", "Inbox");
-        dataset.addValue(19, "Taux de couverture Incar", "Road");
+        dataset.addValue(statistics.getUsersNumber(), "Users Subscribed", "Users");
+        dataset.addValue(statistics.getInboxNumber(), "Taux de couverture Indoor", "Inbox");
+        dataset.addValue(statistics.getRoadNumber(), "Taux de couverture Incar", "Road");
        return dataset;
     }
     
@@ -55,7 +55,7 @@ public final class StatisticsGUI extends ApplicationFrame {
     }
     
     public static void main(final String[] args) throws IOException {
-        final StatisticsGUI demo = new StatisticsGUI("Test de la couverture ");
+        final StatisticsGUI demo = new StatisticsGUI("Statistics");
         demo.pack();
         RefineryUtilities.centerFrameOnScreen(demo);
         demo.setVisible(true);
