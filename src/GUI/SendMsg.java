@@ -9,6 +9,8 @@ package GUI;
 import DAO.MessageDAO;
 import ENTITIES.Message;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +24,8 @@ public class SendMsg extends javax.swing.JFrame {
      */
     public SendMsg() {
         initComponents();
+         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
        Color JframeColor = new Color(63,70,73);
         getContentPane().setBackground(JframeColor);
     }
@@ -42,6 +46,7 @@ public class SendMsg extends javax.swing.JFrame {
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(496, 650));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -86,7 +91,7 @@ public class SendMsg extends javax.swing.JFrame {
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/CONTACT_FORM_BIG_1.png"))); // NOI18N
         BG.setPreferredSize(new java.awt.Dimension(500, 650));
-        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, -1));
+        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

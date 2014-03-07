@@ -17,6 +17,15 @@ public class Message {
     private String object;
     private String content;
     private String date;
+    private int Read;
+
+    public int getRead() {
+        return Read;
+    }
+
+    public void setRead(int Read) {
+        this.Read = Read;
+    }
      
      
     public String getDate() {

@@ -6,11 +6,9 @@
 
 package GUI;
 
-import DAO.MessageDAO;
-import ENTITIES.Message;
 import java.awt.Color;
-import java.util.Arrays;
-import javax.swing.JOptionPane;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
@@ -24,11 +22,14 @@ import javax.swing.table.TableRowSorter;
  */
 public class InboxGUI extends javax.swing.JFrame {
  private final Inbox modele = new Inbox();
+ private final MessageSent modele2 = new MessageSent();
     /**
      * Creates new form InboxGUI
      */
     public InboxGUI() {
         initComponents();
+         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
       jTable1.setAutoCreateRowSorter(true);
         
         Color c = new Color(63,70,73);
@@ -77,18 +78,21 @@ public class InboxGUI extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        New_msg_but = new javax.swing.JLabel();
+        MenuInboxBut = new javax.swing.JLabel();
+        MenuUsersBut = new javax.swing.JLabel();
+        MenuAdvertBut = new javax.swing.JLabel();
+        MenuInbox = new javax.swing.JLabel();
+        DeleteMsg = new javax.swing.JLabel();
         jMsgS = new javax.swing.JButton();
         jMsgR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(63, 70, 73));
         setForeground(java.awt.Color.black);
-        setMaximumSize(new java.awt.Dimension(1100, 600));
         setMinimumSize(new java.awt.Dimension(0, 600));
-        setPreferredSize(new java.awt.Dimension(1100, 600));
+        setPreferredSize(new java.awt.Dimension(1040, 506));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setBackground(new java.awt.Color(255, 0, 0));
         jScrollPane1.setBorder(null);
@@ -104,33 +108,63 @@ public class InboxGUI extends javax.swing.JFrame {
         jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_new_msg_init.png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 870, 352));
+
+        New_msg_but.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_new_msg_init.png"))); // NOI18N
+        New_msg_but.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                New_msg_butMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1MouseEntered(evt);
+                New_msg_butMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel1MouseExited(evt);
+                New_msg_butMouseExited(evt);
             }
         });
+        getContentPane().add(New_msg_but, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 157, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Menu_admin_Inbox.png"))); // NOI18N
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Delete_msg_Out.png"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        MenuInboxBut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MenuInboxBut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                MenuInboxButMouseClicked(evt);
+            }
+        });
+        getContentPane().add(MenuInboxBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 100, 60));
+
+        MenuUsersBut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MenuUsersBut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuUsersButMouseClicked(evt);
+            }
+        });
+        getContentPane().add(MenuUsersBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 120, 60));
+
+        MenuAdvertBut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MenuAdvertBut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MenuAdvertButMouseClicked(evt);
+            }
+        });
+        getContentPane().add(MenuAdvertBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 100, 60));
+
+        MenuInbox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Menu_admin_Inbox.png"))); // NOI18N
+        MenuInbox.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(MenuInbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 1100, -1));
+
+        DeleteMsg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Delete_msg_Out.png"))); // NOI18N
+        DeleteMsg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DeleteMsgMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel3MouseEntered(evt);
+                DeleteMsgMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel3MouseExited(evt);
+                DeleteMsgMouseExited(evt);
             }
         });
+        getContentPane().add(DeleteMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 205, -1, -1));
 
         jMsgS.setText("Message Sent");
         jMsgS.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +172,7 @@ public class InboxGUI extends javax.swing.JFrame {
                 jMsgSActionPerformed(evt);
             }
         });
+        getContentPane().add(jMsgS, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         jMsgR.setText("Message Recieved");
         jMsgR.addActionListener(new java.awt.event.ActionListener() {
@@ -145,89 +180,135 @@ public class InboxGUI extends javax.swing.JFrame {
                 jMsgRActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jMsgS))
-                                .addGap(18, 18, 18))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jMsgR)
-                                .addGap(33, 33, 33)))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 787, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addGap(38, 38, 38)
-                        .addComponent(jMsgS)
-                        .addGap(18, 18, 18)
-                        .addComponent(jMsgR))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(194, 194, 194))
-        );
+        getContentPane().add(jMsgR, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-      jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_new_msg_click.png")));
-    }//GEN-LAST:event_jLabel1MouseEntered
+    private void New_msg_butMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_New_msg_butMouseEntered
+      New_msg_but.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_new_msg_click.png")));
+    }//GEN-LAST:event_New_msg_butMouseEntered
 
-    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_new_msg_init.png")));
-    }//GEN-LAST:event_jLabel1MouseExited
+    private void New_msg_butMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_New_msg_butMouseExited
+        New_msg_but.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_new_msg_init.png")));
+    }//GEN-LAST:event_New_msg_butMouseExited
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void New_msg_butMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_New_msg_butMouseClicked
         SendMsg SM = new SendMsg();
        SM.show();
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_New_msg_butMouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void DeleteMsgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteMsgMouseClicked
        int[] selection = jTable1.getSelectedRows();
         for(int i = selection.length - 1; i >= 0; i--)
         {
             modele.remove_Message(selection[i]);
         }
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_DeleteMsgMouseClicked
 
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
-         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Delete_msg_In.png")));
-    }//GEN-LAST:event_jLabel3MouseEntered
+    private void DeleteMsgMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteMsgMouseEntered
+         DeleteMsg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Delete_msg_In.png")));
+    }//GEN-LAST:event_DeleteMsgMouseEntered
 
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-       jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Delete_msg_Out.png")));
-    }//GEN-LAST:event_jLabel3MouseExited
+    private void DeleteMsgMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteMsgMouseExited
+       DeleteMsg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Delete_msg_Out.png")));
+    }//GEN-LAST:event_DeleteMsgMouseExited
 
     private void jMsgSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMsgSActionPerformed
-       modele.ShowAllSent();
+        jTable1.setModel(modele2);
+          jTable1.setAutoCreateRowSorter(true);
+        
+        Color c = new Color(63,70,73);
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(jTable1.getModel());
+        jScrollPane1.setBorder(null);
+        jTable1.setRowSorter(sorter);
+        jTable1.setFillsViewportHeight(true);
+        jTable1.setShowHorizontalLines(false);
+        jTable1.setShowVerticalLines(true);
+        JTableHeader header = jTable1.getTableHeader();
+        Color bgcolor = new Color(45,47,49);
+        Color focolor = new Color(244,244,244);
+        header.setBackground(bgcolor);
+        header.setForeground(focolor);
+        header.setBorder(null);
+        
+        
+         getContentPane().setBackground(c); 
+          DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+            renderer.setHorizontalAlignment(SwingConstants.CENTER);
+            TableColumn AlignementCol;
+            for(int i = 0; i < modele2.getColumnCount(); i++)
+            {
+                AlignementCol= jTable1.getColumnModel().getColumn(i);
+                AlignementCol.setCellRenderer(renderer);
+            } 
+            
+             for(int i = 0; i < modele2.getColumnCount(); i++)
+            {
+                TableColumn column = jTable1.getColumnModel().getColumn(i);
+                column.setHeaderRenderer(new CustomCellRender());
+            }
+        //end set header border:disabled
+        Color HeaderColorBackground = new Color(34,168,108);
+        header.setBackground(HeaderColorBackground);
+        
     }//GEN-LAST:event_jMsgSActionPerformed
 
     private void jMsgRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMsgRActionPerformed
-        modele.ShowAllRecieved();
+        jTable1.setModel(modele);
+         jTable1.setAutoCreateRowSorter(true);
+        
+        Color c = new Color(63,70,73);
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(jTable1.getModel());
+        jScrollPane1.setBorder(null);
+        jTable1.setRowSorter(sorter);
+        jTable1.setFillsViewportHeight(true);
+        jTable1.setShowHorizontalLines(false);
+        jTable1.setShowVerticalLines(true);
+        JTableHeader header = jTable1.getTableHeader();
+        Color bgcolor = new Color(45,47,49);
+        Color focolor = new Color(244,244,244);
+        header.setBackground(bgcolor);
+        header.setForeground(focolor);
+        header.setBorder(null);
+        
+        
+         getContentPane().setBackground(c); 
+          DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+            renderer.setHorizontalAlignment(SwingConstants.CENTER);
+            TableColumn AlignementCol;
+            for(int i = 0; i < modele.getColumnCount(); i++)
+            {
+                AlignementCol= jTable1.getColumnModel().getColumn(i);
+                AlignementCol.setCellRenderer(renderer);
+            } 
+            
+             for(int i = 0; i < modele.getColumnCount(); i++)
+            {
+                TableColumn column = jTable1.getColumnModel().getColumn(i);
+                column.setHeaderRenderer(new CustomCellRender());
+            }
+        //end set header border:disabled
+        Color HeaderColorBackground = new Color(34,168,108);
+        header.setBackground(HeaderColorBackground);
+        
     }//GEN-LAST:event_jMsgRActionPerformed
+
+    private void MenuAdvertButMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuAdvertButMouseClicked
+       RoadList a = new RoadList();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_MenuAdvertButMouseClicked
+
+    private void MenuUsersButMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuUsersButMouseClicked
+        AffichageUserGui a = new AffichageUserGui();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_MenuUsersButMouseClicked
+
+    private void MenuInboxButMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuInboxButMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuInboxButMouseClicked
                                                 
                                       
 
@@ -247,13 +328,7 @@ public class InboxGUI extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InboxGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InboxGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InboxGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(InboxGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -269,9 +344,12 @@ public class InboxGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel DeleteMsg;
+    private javax.swing.JLabel MenuAdvertBut;
+    private javax.swing.JLabel MenuInbox;
+    private javax.swing.JLabel MenuInboxBut;
+    private javax.swing.JLabel MenuUsersBut;
+    private javax.swing.JLabel New_msg_but;
     private javax.swing.JButton jMsgR;
     private javax.swing.JButton jMsgS;
     private javax.swing.JScrollPane jScrollPane1;

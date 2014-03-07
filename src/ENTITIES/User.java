@@ -26,7 +26,7 @@ public class User {
     private String Img;
     private int Rank;
     private Date DateI;
-    private int Blocked;
+    private Boolean Blocked;
     
     public User(){
         this.Id=0;
@@ -42,7 +42,7 @@ public class User {
         this.Img="none";
         this.Rank=0;
         this.DateI=new Date(2014,1,1);
-        this.Blocked=0;
+        this.Blocked=false;
     }
 
     public User(String login,
@@ -57,7 +57,7 @@ public class User {
                 String img,
                 int rank,
                 Date dateI,
-                int blocked
+                Boolean blocked
             ){
         this.Id=0;
         this.Login=login;
@@ -114,7 +114,7 @@ public class User {
     public Date getDateI() {
         return DateI;
     }
-    public int getBlocked() {
+    public Boolean getBlocked() {
         return Blocked;
     }
     
@@ -157,7 +157,7 @@ public class User {
     public void setDateI(Date a) {
         this.DateI=a;
     }
-    public void setBlocked(int a) {
+    public void setBlocked(Boolean a) {
         this.Blocked=a;
     }
 }

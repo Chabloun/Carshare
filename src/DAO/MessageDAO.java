@@ -114,15 +114,17 @@ public class MessageDAO {
             return null;
         }
     }
-   public void ViewMessage (int id)
+   public Message ViewMessage (int id)
    {
-        String requete = "select * from message where Id=?";
+       
+        String requete = "select * from message where Id='12'";
+        Message msg =new Message();
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
             ResultSet resultat = statement.executeQuery(requete);
 
-                Message msg =new Message();
+               
                 msg.setId_message(resultat.getInt(1));
                 msg.setFrom(resultat.getString(2));
                 msg.setTo(resultat.getString(3));
@@ -135,6 +137,7 @@ public class MessageDAO {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors du chargement des depots "+ex.getMessage());
         }
+            return msg;
    }
 
     

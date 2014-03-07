@@ -1,48 +1,45 @@
+package GUI;
+
+import DAO.MessageDAO;
+import ENTITIES.Message;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.AbstractTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-package GUI;
 /**
  *
- * @author Becem
+ * @author user
  */
-import DAO.MessageDAO;
-import DAO.UserDAO;
-import ENTITIES.Message;
-import ENTITIES.User;
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.table.AbstractTableModel;
-public class Inbox extends AbstractTableModel{
-    
-    
-     String[] headers={"","From","Object","Content","Date"};
+public class MessageSent extends AbstractTableModel{
+     String[] headers={"","To","Object","Content","Date"};
      List<Message> ListMsg = new ArrayList<>();
 
-    public Inbox() {
+    public MessageSent(){
         
         
         MessageDAO Msgdao = new MessageDAO();
-        ListMsg = Msgdao.DisplayAllMessagesRecieved();
+        ListMsg = Msgdao.DisplayAllMessagesSent();
     }
      
-    @Override
-    public int getRowCount() {
+     @Override
+        public int getRowCount() {
         
        return ListMsg.size();
     }
 
-    @Override
-    public int getColumnCount() {
+     @Override
+        public int getColumnCount() {
        return headers.length;
     }
 
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
+     @Override
+        public Object getValueAt(int rowIndex, int columnIndex) {
        switch(columnIndex){
             case 0:
               return ListMsg.get(rowIndex).getId_message();
@@ -60,6 +57,7 @@ public class Inbox extends AbstractTableModel{
     }
          
     }
+     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         if(aValue != null){
             Message Msg = ListMsg.get(rowIndex);
@@ -86,8 +84,8 @@ public class Inbox extends AbstractTableModel{
     }
     
     
-    @Override
-    public String getColumnName(int column) {
+     @Override
+        public String getColumnName(int column) {
         return headers[column];
     }
      public void remove_Message(int rowIndex)
@@ -101,3 +99,5 @@ public class Inbox extends AbstractTableModel{
      
     
 }
+
+
