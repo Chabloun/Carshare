@@ -9,6 +9,8 @@ package GUI;
 import DAO.MessageDAO;
 import ENTITIES.Message;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +24,8 @@ public class SendMsg extends javax.swing.JFrame {
      */
     public SendMsg() {
         initComponents();
+         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
        Color JframeColor = new Color(63,70,73);
         getContentPane().setBackground(JframeColor);
     }
