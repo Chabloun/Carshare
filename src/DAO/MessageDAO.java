@@ -117,14 +117,14 @@ public class MessageDAO {
    public Message ViewMessage (int id)
    {
        
-        String requete = "select * from message where Id='12'";
+        String requete = "select * from message where Id=?";
         Message msg =new Message();
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
             ResultSet resultat = statement.executeQuery(requete);
-
-               
+PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+               ps.setInt(1, id);
                 msg.setId_message(resultat.getInt(1));
                 msg.setFrom(resultat.getString(2));
                 msg.setTo(resultat.getString(3));
