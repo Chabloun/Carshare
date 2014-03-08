@@ -42,50 +42,47 @@ public class AddCarRoad extends javax.swing.JFrame {
         price = new javax.swing.JTextField();
         CityD = new javax.swing.JTextField();
         CityR = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         oui = new javax.swing.JRadioButton();
         non = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         car = new javax.swing.JTextArea();
         seat = new javax.swing.JSpinner();
+        date = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Ajouter.setText("Ajouter");
+        Ajouter.setBackground(new java.awt.Color(34, 168, 108));
+        Ajouter.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        Ajouter.setText("ADD");
         Ajouter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AjouterActionPerformed(evt);
             }
         });
+        getContentPane().add(Ajouter, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 590, 170, 50));
 
+        login.setBackground(new java.awt.Color(51, 53, 55));
+        login.setBorder(null);
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 370, 40));
+
+        price.setBackground(new java.awt.Color(51, 53, 55));
+        price.setBorder(null);
+        getContentPane().add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 370, 40));
+
+        CityD.setBackground(new java.awt.Color(51, 53, 55));
+        CityD.setBorder(null);
         CityD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CityDActionPerformed(evt);
             }
         });
+        getContentPane().add(CityD, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 370, 40));
 
-        jLabel1.setText("Pseudo: ");
-
-        jLabel2.setText("Prix: ");
-
-        jLabel3.setText("Ville de depart :");
-
-        jLabel4.setText("Ville d'arrivée :");
-
-        jLabel5.setText("Nb de place :");
-
-        jLabel6.setText("Retour :");
-
-        jLabel7.setText("Date :");
-
-        jLabel8.setText("Voiture :");
+        CityR.setBackground(new java.awt.Color(51, 53, 55));
+        CityR.setBorder(null);
+        getContentPane().add(CityR, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 370, 40));
 
         buttonGroup1.add(oui);
         oui.setText("Oui");
@@ -94,92 +91,35 @@ public class AddCarRoad extends javax.swing.JFrame {
                 ouiActionPerformed(evt);
             }
         });
+        getContentPane().add(oui, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 570, -1, -1));
 
         buttonGroup1.add(non);
         non.setSelected(true);
         non.setText("Non");
+        getContentPane().add(non, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 570, -1, -1));
 
+        car.setBackground(new java.awt.Color(51, 53, 55));
         car.setColumns(20);
         car.setRows(5);
+        car.setBorder(null);
         jScrollPane1.setViewportView(car);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CityR, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                            .addComponent(CityD)
-                            .addComponent(price)
-                            .addComponent(login))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(Ajouter)
-                        .addGap(79, 79, 79))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(oui)
-                                .addGap(18, 18, 18)
-                                .addComponent(non))
-                            .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CityD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CityR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(oui)
-                    .addComponent(non))
-                .addGap(15, 15, 15)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                        .addComponent(Ajouter)))
-                .addContainerGap())
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 380, 140));
+
+        seat.setBorder(null);
+        getContentPane().add(seat, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 370, 40));
+
+        date.setBackground(new java.awt.Color(51, 53, 55));
+        date.setBorder(null);
+        date.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 370, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/AddCarRoad.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -276,6 +216,10 @@ public class AddCarRoad extends javax.swing.JFrame {
        
     }//GEN-LAST:event_AjouterActionPerformed
 
+    private void dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -317,14 +261,8 @@ public class AddCarRoad extends javax.swing.JFrame {
     private javax.swing.JTextField CityR;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextArea car;
+    private javax.swing.JTextField date;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField login;
     private javax.swing.JRadioButton non;
