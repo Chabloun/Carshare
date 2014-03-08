@@ -86,6 +86,9 @@ public class InboxGUI extends javax.swing.JFrame {
         DeleteMsg = new javax.swing.JLabel();
         jMsgS = new javax.swing.JButton();
         jMsgR = new javax.swing.JButton();
+        MenuInboxBut = new javax.swing.JLabel();
+        MenuUsersBut = new javax.swing.JLabel();
+        MenuAdvertBut = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(63, 70, 73));
