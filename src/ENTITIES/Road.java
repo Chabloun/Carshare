@@ -15,14 +15,14 @@ public class Road {
     private String CityD;
     private String CityR;
     private int Seat;
-    private int Round;
+    private String Round;
     private Date DateD ;
     private Date DateR ;
     private String HourD;
     private String HourR;
     private String Car;
 
-    public Road( String Driver,float Price,  int Seat,String CityD, String CityR,  int Round, Date DateD, Date DateR, String HourD, String HourR, String Car) {
+    public Road( String Driver,float Price,  int Seat,String CityD, String CityR,  String Round, Date DateD, Date DateR, String HourD, String HourR, String Car) {
        
         
         this.Driver = Driver;
@@ -46,7 +46,7 @@ public class Road {
         this.CityD = "";
         this.CityR = "";
         this.Seat =0;
-        this.Round = 0;
+        this.Round = "";
         this.DateD=new Date(2014-01-01);
         this.DateR=new Date(2014-01-01);
         this.HourD="";
@@ -121,11 +121,11 @@ public class Road {
         this.Seat = Seat;
     }
 
-    public int getRound() {
+    public String getRound() {
         return Round;
     }
 
-    public void setRound(int Round) {
+    public void setRound(String Round) {
         this.Round = Round;
     }
      

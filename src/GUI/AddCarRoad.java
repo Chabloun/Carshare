@@ -240,7 +240,7 @@ public class AddCarRoad extends javax.swing.JFrame {
         if(oui.isSelected()){
             road=1;
         }
-        r.setRound(road);
+        //r.setRound(road);
         rdao.AddRoad(r);
         JOptionPane.showMessageDialog(this,"Ajout effectué");
                                                 }

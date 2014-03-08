@@ -68,6 +68,7 @@ public class RoadList extends javax.swing.JFrame {
         //end set header border:disabled
         Color HeaderColorBackground = new Color(34,168,108);
         header.setBackground(HeaderColorBackground);
+        RoadList.getColumnModel().getColumn(6).setCellRenderer(new Filtres());
     }
 
     

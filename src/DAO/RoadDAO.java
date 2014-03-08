@@ -30,7 +30,7 @@ public class RoadDAO {
             ps.setInt(3,r.getSeat());
             ps.setString(4,r.getCityD());
             ps.setString(5,r.getCityR());
-            ps.setInt(6,r.getRound());
+            ps.setString(6,r.getRound());
             ps.setDate(7,r.getDateD());
             ps.setDate(8,r.getDateR());
             ps.setString(9,r.getHourD());
@@ -58,7 +58,7 @@ public class RoadDAO {
         }
     }
          public void updateRoad(Road r){
-        String requete = "update road set  Driver=?,Price=?,Seat=?,CityD=?,CityR=? ,Round=? where Id=?";
+        String requete = "update road set  Driver=?,Price=?,Seat=?,CityD=?,CityR=? ,Round=?,DateD=?,DateR=?,HourD=?,HourR=?,Car=? where Id=?";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setString(1, r.getDriver());
@@ -66,13 +66,13 @@ public class RoadDAO {
             ps.setInt(3, r.getSeat());
             ps.setString(4, r.getCityD());
             ps.setString(5, r.getCityR());
-            ps.setInt(6, r.getRound());
-            ps.setInt(7, r.getId());
-            ps.setDate(8,r.getDateD());
-            ps.setDate(9,r.getDateR());
-            ps.setString(10,r.getHourD());
-            ps.setString(11,r.getHourR());
-            ps.setString(12,r.getCar());
+            ps.setString(6, r.getRound());
+            ps.setDate(7,r.getDateD());
+            ps.setDate(8,r.getDateR());
+            ps.setString(9,r.getHourD());
+            ps.setString(10,r.getHourR());
+            ps.setString(11,r.getCar());
+            ps.setInt(12, r.getId());
             
             ps.executeUpdate();
             System.out.println("Road updated successfully");
@@ -101,7 +101,7 @@ public class RoadDAO {
                 road.setSeat(resultat.getInt(4));
                 road.setCityD(resultat.getString(5));
                 road.setCityR(resultat.getString(6));
-                road.setRound(resultat.getInt(7));
+                road.setRound(resultat.getString(7));
                 road.setDateD(resultat.getDate(8));
                 road.setDateR(resultat.getDate(9));
                 road.setHourD(resultat.getString(10));

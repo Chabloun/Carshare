@@ -101,7 +101,7 @@ public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
                 road.setCityR((String)aValue);
                 break;
              case 6:
-                road.setRound((int)aValue);
+                road.setRound((String)aValue);
                 break;
              case 7:
                 road.setDateD((Date)aValue);
@@ -139,7 +139,7 @@ public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
             case 5:
                 return String.class;
             case 6:
-                return Integer.class;
+                return String.class;
             case 7:
                 return Date.class;
              case 8:
