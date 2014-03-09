@@ -64,14 +64,20 @@ public class AddCarRoad extends javax.swing.JFrame {
         getContentPane().add(Ajouter, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 570, 190, 80));
 
         login.setBackground(new java.awt.Color(51, 53, 55));
+        login.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        login.setForeground(new java.awt.Color(255, 255, 255));
         login.setBorder(null);
         getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 370, 40));
 
         price.setBackground(new java.awt.Color(51, 53, 55));
+        price.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        price.setForeground(new java.awt.Color(255, 255, 255));
         price.setBorder(null);
         getContentPane().add(price, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 370, 40));
 
         CityD.setBackground(new java.awt.Color(51, 53, 55));
+        CityD.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        CityD.setForeground(new java.awt.Color(255, 255, 255));
         CityD.setBorder(null);
         CityD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +87,8 @@ public class AddCarRoad extends javax.swing.JFrame {
         getContentPane().add(CityD, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 370, 40));
 
         CityR.setBackground(new java.awt.Color(51, 53, 55));
+        CityR.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        CityR.setForeground(new java.awt.Color(255, 255, 255));
         CityR.setBorder(null);
         getContentPane().add(CityR, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 370, 40));
 
@@ -100,6 +108,8 @@ public class AddCarRoad extends javax.swing.JFrame {
 
         car.setBackground(new java.awt.Color(51, 53, 55));
         car.setColumns(20);
+        car.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        car.setForeground(new java.awt.Color(255, 255, 255));
         car.setRows(5);
         car.setBorder(null);
         jScrollPane1.setViewportView(car);
@@ -110,6 +120,8 @@ public class AddCarRoad extends javax.swing.JFrame {
         getContentPane().add(seat, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 370, 40));
 
         date.setBackground(new java.awt.Color(51, 53, 55));
+        date.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        date.setForeground(new java.awt.Color(255, 255, 255));
         date.setBorder(null);
         date.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

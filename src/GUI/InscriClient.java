@@ -61,14 +61,20 @@ public class InscriClient extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         FirstName.setBackground(new java.awt.Color(51, 53, 55));
+        FirstName.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        FirstName.setForeground(new java.awt.Color(255, 255, 255));
         FirstName.setBorder(null);
         getContentPane().add(FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 370, 40));
 
         Address.setBackground(new java.awt.Color(51, 53, 55));
+        Address.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        Address.setForeground(new java.awt.Color(255, 255, 255));
         Address.setBorder(null);
         getContentPane().add(Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 370, 40));
 
         Email.setBackground(new java.awt.Color(51, 53, 55));
+        Email.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        Email.setForeground(new java.awt.Color(255, 255, 255));
         Email.setBorder(null);
         Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +100,8 @@ public class InscriClient extends javax.swing.JFrame {
         getContentPane().add(Femme, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 580, -1, -1));
 
         City.setBackground(new java.awt.Color(51, 53, 55));
+        City.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        City.setForeground(new java.awt.Color(255, 255, 255));
         City.setBorder(null);
         City.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +111,8 @@ public class InscriClient extends javax.swing.JFrame {
         getContentPane().add(City, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 460, 370, 40));
 
         cpwd.setBackground(new java.awt.Color(51, 53, 55));
+        cpwd.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        cpwd.setForeground(new java.awt.Color(255, 255, 255));
         cpwd.setBorder(null);
         cpwd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +122,8 @@ public class InscriClient extends javax.swing.JFrame {
         getContentPane().add(cpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 370, 40));
 
         pwd.setBackground(new java.awt.Color(51, 53, 55));
+        pwd.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        pwd.setForeground(new java.awt.Color(255, 255, 255));
         pwd.setBorder(null);
         pwd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +133,8 @@ public class InscriClient extends javax.swing.JFrame {
         getContentPane().add(pwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 380, 40));
 
         Login.setBackground(new java.awt.Color(51, 53, 55));
+        Login.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        Login.setForeground(new java.awt.Color(255, 255, 255));
         Login.setBorder(null);
         Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +159,8 @@ public class InscriClient extends javax.swing.JFrame {
         getContentPane().add(Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 560, 370, 40));
 
         LastName.setBackground(new java.awt.Color(51, 53, 55));
+        LastName.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        LastName.setForeground(new java.awt.Color(255, 255, 255));
         LastName.setBorder(null);
         LastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

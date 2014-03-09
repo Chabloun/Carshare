@@ -39,12 +39,12 @@ public class AuthClient extends javax.swing.JFrame {
         Connect = new javax.swing.JButton();
         login = new javax.swing.JTextField();
         pwd = new javax.swing.JPasswordField();
+        Register = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
         LoginFb = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(34, 168, 108));
-        setMaximumSize(new java.awt.Dimension(500, 449));
         setMinimumSize(new java.awt.Dimension(500, 479));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -79,6 +79,18 @@ public class AuthClient extends javax.swing.JFrame {
         pwd.setForeground(new java.awt.Color(220, 220, 220));
         pwd.setBorder(null);
         getContentPane().add(pwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 280, 50));
+
+        Register.setBackground(new java.awt.Color(34, 168, 108));
+        Register.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Register.setForeground(new java.awt.Color(120, 120, 120));
+        Register.setText("Register");
+        Register.setBorder(null);
+        Register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 250, 50));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/authentification/background.png"))); // NOI18N
         Background.setText("Login");
@@ -124,6 +136,11 @@ public class AuthClient extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LoginFbMouseClicked
 
+    private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
+        InscriClient insc= new InscriClient();
+        insc.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_RegisterActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -163,6 +180,7 @@ public class AuthClient extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JButton Connect;
     private javax.swing.JLabel LoginFb;
+    private javax.swing.JButton Register;
     private javax.swing.JLabel checkLabel;
     private javax.swing.JTextField login;
     private javax.swing.JPasswordField pwd;
