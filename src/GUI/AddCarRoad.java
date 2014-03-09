@@ -176,11 +176,15 @@ public class AddCarRoad extends javax.swing.JFrame {
         r.setCityD(CityD.getText());
         r.setCityR(CityR.getText());
         r.setSeat(parseInt(seat.getValue().toString()));
-        int road=0;
+        String road="";
         if(oui.isSelected()){
-            road=1;
+            road=oui.getText();
         }
-        //r.setRound(road);
+        if(non.isSelected()){
+            road=non.getText();
+        }    
+        
+        r.setRound(road);
         rdao.AddRoad(r);
         JOptionPane.showMessageDialog(this,"Ajout effectué");
                                                 }
