@@ -28,6 +28,7 @@ public class SendMsg extends javax.swing.JFrame {
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
        Color JframeColor = new Color(63,70,73);
         getContentPane().setBackground(JframeColor);
+        System.out.println(AuthClient.clients.getLogin());
     }
 
     /**
@@ -43,11 +44,12 @@ public class SendMsg extends javax.swing.JFrame {
         Jobject = new javax.swing.JTextField();
         Jmsg = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(496, 650));
+        setPreferredSize(new java.awt.Dimension(473, 650));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Jto.setBackground(new java.awt.Color(51, 53, 55));
@@ -76,6 +78,7 @@ public class SendMsg extends javax.swing.JFrame {
         getContentPane().add(Jmsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 334, 370, 190));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Send_out.png"))); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
@@ -87,10 +90,24 @@ public class SendMsg extends javax.swing.JFrame {
                 jLabel2MouseExited(evt);
             }
         });
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 570, 100, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, 100, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Cancel_Out.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel1MouseExited(evt);
+            }
+        });
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, -1, -1));
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/CONTACT_FORM_BIG_1.png"))); // NOI18N
-        BG.setPreferredSize(new java.awt.Dimension(500, 650));
         getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, -1));
 
         pack();
@@ -103,7 +120,7 @@ public class SendMsg extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         MessageDAO mdao = new MessageDAO();
         Message msg = new Message();
-        msg.setFrom("Admin");
+        msg.setFrom(AuthClient.clients.getLogin());
         msg.setTo(Jto.getText());
         msg.setObject(Jobject.getText());
         msg.setContent(Jmsg.getText());
@@ -120,6 +137,18 @@ public class SendMsg extends javax.swing.JFrame {
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Button_Send_out.png")));
     }//GEN-LAST:event_jLabel2MouseExited
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        this.dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+       jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Cancel.png")));
+    }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Cancel_Out.png")));
+    }//GEN-LAST:event_jLabel1MouseExited
 
     /**
      * @param args the command line arguments
@@ -161,6 +190,7 @@ public class SendMsg extends javax.swing.JFrame {
     private javax.swing.JTextArea Jmsg;
     private javax.swing.JTextField Jobject;
     private javax.swing.JTextField Jto;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@
 package DAO;
 
 import ENTITIES.Message;
+
 import UTIL.MyConnection;
 
 import java.sql.PreparedStatement;
@@ -52,17 +53,17 @@ public class MessageDAO {
         }
     } 
        
-        public List<Message> DisplayAllMessagesRecieved (){
+        public List<Message> DisplayAllMessagesRecieved (String R){
 
 
         List<Message> listemsg = new ArrayList<>();
 
-        String requete = "select * from message where Reciever = 'Admin' ";
+        String requete = "select * from message where Reciever ='"+R+"'";
         try {
            
            Statement statement = MyConnection.getInstance()
                    .createStatement();
-           
+            
             ResultSet resultat = statement.executeQuery(requete);
             
             while(resultat.next()){
@@ -72,6 +73,7 @@ public class MessageDAO {
                 msg.setTo(resultat.getString(3));
                 msg.setObject(resultat.getString(4));
                 msg.setContent(resultat.getString(5));
+                msg.setRead(resultat.getBoolean(6));
 
                 listemsg.add(msg);
             }
@@ -84,12 +86,12 @@ public class MessageDAO {
     }
         
         
-        public List<Message> DisplayAllMessagesSent (){
+        public List<Message> DisplayAllMessagesSent (String S){
 
 
         List<Message> listemsg = new ArrayList<>();
 
-        String requete = "select * from message where Sender = 'Admin' ";
+        String requete = "select * from message where Sender ='"+S+"'";
         try {
            
            Statement statement = MyConnection.getInstance()
@@ -104,6 +106,7 @@ public class MessageDAO {
                 msg.setTo(resultat.getString(3));
                 msg.setObject(resultat.getString(4));
                 msg.setContent(resultat.getString(5));
+                msg.setRead(resultat.getBoolean(6));
 
                 listemsg.add(msg);
             }
@@ -117,26 +120,29 @@ public class MessageDAO {
    public Message ViewMessage (int id)
    {
        
-        String requete = "select * from message where Id='12'";
+        String requete = "select * from message where Id='"+id+"'";
         Message msg =new Message();
         try {
-           Statement statement = MyConnection.getInstance()
+             Statement statement = MyConnection.getInstance()
                    .createStatement();
+            
             ResultSet resultat = statement.executeQuery(requete);
-
-               
+             if(resultat.next()){
+  
+     
                 msg.setId_message(resultat.getInt(1));
                 msg.setFrom(resultat.getString(2));
                 msg.setTo(resultat.getString(3));
                 msg.setObject(resultat.getString(4));
                 msg.setContent(resultat.getString(5));
-
-              
-            
+                
+             }
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors du chargement des depots "+ex.getMessage());
         }
+                    System.out.println(msg.getFrom());  
+
             return msg;
    }
 

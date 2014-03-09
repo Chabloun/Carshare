@@ -20,14 +20,14 @@ import javax.swing.table.AbstractTableModel;
 public class Inbox extends AbstractTableModel{
     
     
-     String[] headers={"","From","Object","Content","Date"};
+     String[] headers={"Read","","From","Object","Content","Date"};
      List<Message> ListMsg = new ArrayList<>();
 
     public Inbox() {
         
         
         MessageDAO Msgdao = new MessageDAO();
-        ListMsg = Msgdao.DisplayAllMessagesRecieved();
+        ListMsg = Msgdao.DisplayAllMessagesRecieved(AuthClient.clients.getLogin());
     }
      
     @Override
@@ -44,15 +44,17 @@ public class Inbox extends AbstractTableModel{
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
        switch(columnIndex){
-            case 0:
+           case 0:
+              return ListMsg.get(rowIndex).getRead(); 
+           case 1:
               return ListMsg.get(rowIndex).getId_message();
-            case 1:
-                return ListMsg.get(rowIndex).getFrom();
             case 2:
-                return ListMsg.get(rowIndex).getObject();
+                return ListMsg.get(rowIndex).getFrom();
             case 3:
-                return ListMsg.get(rowIndex).getContent();
+                return ListMsg.get(rowIndex).getObject();
             case 4:
+                return ListMsg.get(rowIndex).getContent();
+            case 5:
                 return ListMsg.get(rowIndex).getDate();
            
             default:

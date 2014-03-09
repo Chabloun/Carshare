@@ -42,67 +42,79 @@ public class MessageGUI extends javax.swing.JFrame {
         Message = new javax.swing.JLabel();
         Date = new javax.swing.JLabel();
         Reply = new javax.swing.JButton();
+        Cancel = new javax.swing.JLabel();
+        Jmsg = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(63, 70, 73));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(500, 640));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        To_lab.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        Sender.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        Sender.setForeground(new java.awt.Color(225, 225, 225));
+        getContentPane().add(Sender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 46, 14));
+
+        To_lab.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        To_lab.setForeground(new java.awt.Color(33, 154, 101));
         To_lab.setText("To");
+        getContentPane().add(To_lab, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
 
-        From_lab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        From_lab.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        From_lab.setForeground(new java.awt.Color(33, 154, 101));
         From_lab.setText("From");
+        getContentPane().add(From_lab, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
 
-        Reply.setText("Replay");
+        Reciever.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        Reciever.setForeground(new java.awt.Color(225, 225, 225));
+        getContentPane().add(Reciever, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 115, 30, 10));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Message, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(From_lab)
-                            .addComponent(To_lab))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Reciever)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Sender, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Date)
-                                .addGap(14, 14, 14)))))
-                .addContainerGap(112, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Reply)
-                .addGap(133, 133, 133))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(From_lab)
-                    .addComponent(Sender, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Date))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(To_lab)
-                    .addComponent(Reciever))
-                .addGap(36, 36, 36)
-                .addComponent(Message, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(Reply)
-                .addGap(23, 23, 23))
-        );
+        Message.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        Message.setForeground(new java.awt.Color(225, 225, 225));
+        getContentPane().add(Message, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 356, 126));
+
+        Date.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        Date.setForeground(new java.awt.Color(225, 225, 225));
+        getContentPane().add(Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 20, 10));
+
+        Reply.setText("Reply");
+        getContentPane().add(Reply, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 610, -1, -1));
+
+        Cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Cancel_Out.png"))); // NOI18N
+        Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CancelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CancelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CancelMouseExited(evt);
+            }
+        });
+        getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 607, -1, -1));
+
+        Jmsg.setBackground(new java.awt.Color(233, 246, 241));
+        Jmsg.setColumns(20);
+        Jmsg.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Jmsg.setForeground(new java.awt.Color(125, 125, 125));
+        Jmsg.setRows(5);
+        Jmsg.setBorder(null);
+        getContentPane().add(Jmsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 290, 180));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Cadre_Blanc.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, -1, -1));
+
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Message_View_1.png"))); // NOI18N
+        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -111,7 +123,7 @@ public class MessageGUI extends javax.swing.JFrame {
         Message msg = new Message();
         MessageDAO Msg =new MessageDAO();
        msg= Msg.ViewMessage(12);
-       
+        System.out.println(msg.getFrom());
         
         Sender.setText(msg.getFrom());
         Reciever.setText(msg.getTo());
@@ -119,6 +131,22 @@ public class MessageGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowOpened
 
+    private void CancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelMouseExited
+      Cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Cancel_Out.png")));
+    }//GEN-LAST:event_CancelMouseExited
+
+    private void CancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelMouseEntered
+        Cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Cancel.png")));
+    }//GEN-LAST:event_CancelMouseEntered
+
+    private void CancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelMouseClicked
+       this.dispose();
+    }//GEN-LAST:event_CancelMouseClicked
+
+     
+                                  
+
+                              
     /**
      * @param args the command line arguments
      */
@@ -155,12 +183,16 @@ public class MessageGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BG;
+    private javax.swing.JLabel Cancel;
     private javax.swing.JLabel Date;
     private javax.swing.JLabel From_lab;
+    private javax.swing.JTextArea Jmsg;
     private javax.swing.JLabel Message;
     private javax.swing.JLabel Reciever;
     private javax.swing.JButton Reply;
     private javax.swing.JLabel Sender;
     private javax.swing.JLabel To_lab;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

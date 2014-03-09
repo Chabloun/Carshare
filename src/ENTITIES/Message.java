@@ -17,13 +17,13 @@ public class Message {
     private String object;
     private String content;
     private String date;
-    private int Read;
+    private Boolean Read;
 
-    public int getRead() {
+    public Boolean getRead() {
         return Read;
     }
 
-    public void setRead(int Read) {
+    public void setRead(Boolean Read) {
         this.Read = Read;
     }
      

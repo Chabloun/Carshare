@@ -24,7 +24,7 @@ public class MessageSent extends AbstractTableModel{
         
         
         MessageDAO Msgdao = new MessageDAO();
-        ListMsg = Msgdao.DisplayAllMessagesSent();
+        ListMsg = Msgdao.DisplayAllMessagesSent(AuthClient.clients.getLogin());
     }
      
      @Override

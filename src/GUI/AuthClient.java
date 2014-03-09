@@ -113,8 +113,8 @@ public class AuthClient extends javax.swing.JFrame {
 
     private void ConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnectActionPerformed
         UserDAO cdao = new UserDAO();
-        User client = new User();
-        clients.setLastName("chedi");
+       clients=cdao.findUserByLogin(login.getText());
+        
         boolean there = cdao.Authentification(login.getText(), pwd.getText());
         if(there)
         {

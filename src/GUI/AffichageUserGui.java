@@ -66,7 +66,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
         //end set text alignement
             
         //set blocked images
-            
+              jTable1.getColumnModel().getColumn(12).setCellRenderer(new CustomCellRender_Blocked());
         //set blocked images
             
         //set header border:disabled
@@ -78,7 +78,7 @@ public class AffichageUserGui extends javax.swing.JFrame {
         //end set header border:disabled
         Color HeaderColorBackground = new Color(34,168,108);
         header.setBackground(HeaderColorBackground);
-        jTable1.getColumnModel().getColumn(12).setCellRenderer(new CustomCellRender_Blocked());
+      
     }
 
     /** This method is called from within the constructor to
