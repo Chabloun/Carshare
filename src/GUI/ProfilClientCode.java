@@ -26,8 +26,9 @@ public class ProfilClientCode {
     {
         user =new User();
     }
-   public User getUser(){
-    String requete = "select * from User where login='a'";
+   public User getUser(String a){
+       
+    String requete = "select * from User where login='"+a+"'";
 
         try {
            Statement statement = MyConnection.getInstance().createStatement();

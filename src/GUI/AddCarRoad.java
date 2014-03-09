@@ -48,6 +48,7 @@ public class AddCarRoad extends javax.swing.JFrame {
         car = new javax.swing.JTextArea();
         seat = new javax.swing.JSpinner();
         date = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,6 +135,17 @@ public class AddCarRoad extends javax.swing.JFrame {
             }
         });
         getContentPane().add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 370, 40));
+
+        jButton1.setBackground(new java.awt.Color(34, 168, 108));
+        jButton1.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/AddCarRoad.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -245,6 +257,12 @@ public class AddCarRoad extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ProfilClient back= new ProfilClient();
+        back.setVisible(rootPaneCheckingEnabled);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -287,6 +305,7 @@ public class AddCarRoad extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextArea car;
     private javax.swing.JTextField date;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField login;

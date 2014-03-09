@@ -136,14 +136,14 @@ public class ProfilClient extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         User user = new User();
         ProfilClientCode profile = new ProfilClientCode();
-        user = profile.getUser();
-        Login.setText(user.getLogin());
-        FirstName.setText(user.getFirstName());
-        LastName.setText(user.getLastName());
-        Address.setText(user.getAddress());
-        City.setText(user.getCity());
-        Date.setText(user.getDateB().toString());
-        Sex.setText(user.getSexe());
+       // user = profile.getUser();
+        Login.setText(AuthClient.clients.getLogin());
+        FirstName.setText(AuthClient.clients.getFirstName());
+        LastName.setText(AuthClient.clients.getLastName());
+        Address.setText(AuthClient.clients.getAddress());
+        City.setText(AuthClient.clients.getCity());
+        Date.setText(AuthClient.clients.getDateB().toString());
+        Sex.setText(AuthClient.clients.getSexe());
         
 
     
@@ -154,12 +154,14 @@ public class ProfilClient extends javax.swing.JFrame {
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         AddCarRoad addroad=new AddCarRoad();
         addroad.setVisible(rootPaneCheckingEnabled);
+        this.dispose();
        
     }//GEN-LAST:event_addActionPerformed
 
     private void FindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FindActionPerformed
         RoadList findroad = new RoadList();
         findroad.setVisible(rootPaneCheckingEnabled);
+        this.dispose();
     }//GEN-LAST:event_FindActionPerformed
 
     /**

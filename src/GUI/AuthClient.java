@@ -10,6 +10,7 @@ import DAO.UserDAO;
 import ENTITIES.User;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -117,13 +118,21 @@ public class AuthClient extends javax.swing.JFrame {
         
         boolean there = cdao.Authentification(login.getText(), pwd.getText());
         if(there)
-        {
-            AffichageUserGui a= new AffichageUserGui();
-            a.setVisible(true);
-            this.dispose();
+            { 
+                if(login.getText().equals("admin") && pwd.getText().equals("admin"))
+                {
+                    AffichageUserGui a= new AffichageUserGui();
+                    a.setVisible(true);
+                    this.dispose();
+                }
+                else {
+                   ProfilClient b=new ProfilClient();
+                   b.setVisible(true);
+                   this.dispose();
+                }
         }else
         {
-            System.out.println("false");
+            JOptionPane.showMessageDialog(this,"Login OR Password unvalid");
         }
 
     }//GEN-LAST:event_ConnectActionPerformed
