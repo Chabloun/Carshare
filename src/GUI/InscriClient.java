@@ -51,13 +51,14 @@ public class InscriClient extends javax.swing.JFrame {
         Inscrit = new javax.swing.JButton();
         Date = new com.toedter.calendar.JDateChooser();
         LastName = new javax.swing.JTextField();
+        back = new javax.swing.JButton();
         PHOTO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(45, 47, 49));
         setMaximumSize(new java.awt.Dimension(10575575, 2782));
         setMinimumSize(new java.awt.Dimension(1040, 560));
-        setPreferredSize(new java.awt.Dimension(1040, 560));
+        setPreferredSize(new java.awt.Dimension(1040, 900));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         FirstName.setBackground(new java.awt.Color(51, 53, 55));
@@ -142,6 +143,7 @@ public class InscriClient extends javax.swing.JFrame {
         getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 370, 40));
 
         Inscrit.setBackground(new java.awt.Color(34, 168, 108));
+        Inscrit.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         Inscrit.setForeground(new java.awt.Color(51, 53, 55));
         Inscrit.setText("REGISTER");
         Inscrit.setBorder(null);
@@ -166,6 +168,18 @@ public class InscriClient extends javax.swing.JFrame {
             }
         });
         getContentPane().add(LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 370, 40));
+
+        back.setBackground(new java.awt.Color(34, 168, 108));
+        back.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        back.setForeground(new java.awt.Color(45, 47, 49));
+        back.setText("Back");
+        back.setBorder(null);
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 70, 30));
 
         PHOTO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Inscri.png"))); // NOI18N
         PHOTO.setMaximumSize(new java.awt.Dimension(1880, 1267));
@@ -309,6 +323,12 @@ public class InscriClient extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pwdActionPerformed
 
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        AuthClient back= new AuthClient();
+        back.setVisible(rootPaneCheckingEnabled);
+        this.dispose();
+    }//GEN-LAST:event_backActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -357,6 +377,7 @@ public class InscriClient extends javax.swing.JFrame {
     private javax.swing.JTextField LastName;
     private javax.swing.JTextField Login;
     private javax.swing.JLabel PHOTO;
+    private javax.swing.JButton back;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPasswordField cpwd;
     private javax.swing.JPasswordField pwd;

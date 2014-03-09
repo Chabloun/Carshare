@@ -47,22 +47,23 @@ public class AddCarRoad extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         car = new javax.swing.JTextArea();
         seat = new javax.swing.JSpinner();
-        date = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        Back = new javax.swing.JButton();
+        Date = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Ajouter.setBackground(new java.awt.Color(34, 168, 108));
-        Ajouter.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        Ajouter.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        Ajouter.setForeground(new java.awt.Color(45, 47, 49));
         Ajouter.setText("ADD");
         Ajouter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AjouterActionPerformed(evt);
             }
         });
-        getContentPane().add(Ajouter, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 570, 190, 80));
+        getContentPane().add(Ajouter, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 570, 190, 80));
 
         login.setBackground(new java.awt.Color(51, 53, 55));
         login.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
@@ -125,27 +126,17 @@ public class AddCarRoad extends javax.swing.JFrame {
         seat.setBorder(null);
         getContentPane().add(seat, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 370, 40));
 
-        date.setBackground(new java.awt.Color(51, 53, 55));
-        date.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
-        date.setForeground(new java.awt.Color(255, 255, 255));
-        date.setBorder(null);
-        date.addActionListener(new java.awt.event.ActionListener() {
+        Back.setBackground(new java.awt.Color(34, 168, 108));
+        Back.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        Back.setForeground(new java.awt.Color(45, 47, 49));
+        Back.setText("Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateActionPerformed(evt);
+                BackActionPerformed(evt);
             }
         });
-        getContentPane().add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 370, 40));
-
-        jButton1.setBackground(new java.awt.Color(34, 168, 108));
-        jButton1.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        getContentPane().add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        getContentPane().add(Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, 360, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/AddCarRoad.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -249,19 +240,15 @@ public class AddCarRoad extends javax.swing.JFrame {
        
     }//GEN-LAST:event_AjouterActionPerformed
 
-    private void dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dateActionPerformed
-
     private void nonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         ProfilClient back= new ProfilClient();
         back.setVisible(rootPaneCheckingEnabled);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,12 +287,12 @@ public class AddCarRoad extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ajouter;
+    private javax.swing.JButton Back;
     private javax.swing.JTextField CityD;
     private javax.swing.JTextField CityR;
+    private com.toedter.calendar.JDateChooser Date;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextArea car;
-    private javax.swing.JTextField date;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField login;

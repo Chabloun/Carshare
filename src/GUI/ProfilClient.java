@@ -52,14 +52,14 @@ public class ProfilClient extends javax.swing.JFrame {
         Sex.setEditable(false);
         Sex.setBackground(new java.awt.Color(45, 47, 49));
         Sex.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        Sex.setForeground(new java.awt.Color(255, 255, 255));
+        Sex.setForeground(new java.awt.Color(34, 168, 108));
         Sex.setBorder(null);
         getContentPane().add(Sex, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 120, 30));
 
         FirstName.setEditable(false);
         FirstName.setBackground(new java.awt.Color(45, 47, 49));
         FirstName.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        FirstName.setForeground(new java.awt.Color(255, 255, 255));
+        FirstName.setForeground(new java.awt.Color(34, 168, 108));
         FirstName.setBorder(null);
         FirstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,56 +71,60 @@ public class ProfilClient extends javax.swing.JFrame {
         LastName.setEditable(false);
         LastName.setBackground(new java.awt.Color(45, 47, 49));
         LastName.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        LastName.setForeground(new java.awt.Color(255, 255, 255));
+        LastName.setForeground(new java.awt.Color(34, 168, 108));
         LastName.setBorder(null);
         getContentPane().add(LastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 120, 30));
 
         Address.setEditable(false);
         Address.setBackground(new java.awt.Color(45, 47, 49));
         Address.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        Address.setForeground(new java.awt.Color(255, 255, 255));
+        Address.setForeground(new java.awt.Color(34, 168, 108));
         Address.setBorder(null);
         getContentPane().add(Address, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 120, 30));
 
         City.setEditable(false);
         City.setBackground(new java.awt.Color(45, 47, 49));
         City.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        City.setForeground(new java.awt.Color(255, 255, 255));
+        City.setForeground(new java.awt.Color(34, 168, 108));
         City.setBorder(null);
         getContentPane().add(City, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 120, 30));
 
         Date.setEditable(false);
         Date.setBackground(new java.awt.Color(45, 47, 49));
         Date.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        Date.setForeground(new java.awt.Color(255, 255, 255));
+        Date.setForeground(new java.awt.Color(34, 168, 108));
         Date.setBorder(null);
         getContentPane().add(Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 120, 30));
 
         Login.setEditable(false);
         Login.setBackground(new java.awt.Color(45, 47, 49));
         Login.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
-        Login.setForeground(new java.awt.Color(255, 255, 255));
+        Login.setForeground(new java.awt.Color(34, 168, 108));
         Login.setBorder(null);
         Login.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 130, 30));
 
         add.setBackground(new java.awt.Color(34, 168, 108));
+        add.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        add.setForeground(new java.awt.Color(45, 47, 49));
         add.setText("ADD ROAD");
         add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addActionPerformed(evt);
             }
         });
-        getContentPane().add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 150, 50));
+        getContentPane().add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 130, 50));
 
         Find.setBackground(new java.awt.Color(34, 168, 108));
+        Find.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        Find.setForeground(new java.awt.Color(45, 47, 49));
         Find.setText("FIND ROAD");
         Find.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FindActionPerformed(evt);
             }
         });
-        getContentPane().add(Find, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 150, 50));
+        getContentPane().add(Find, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, -1, 50));
 
         Photo.setBackground(new java.awt.Color(45, 47, 49));
         Photo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/ProfilClient.png"))); // NOI18N
