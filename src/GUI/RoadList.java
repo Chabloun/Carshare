@@ -1,6 +1,7 @@
 
 package GUI;
 
+import DAO.RoadDAO;
 import ENTITIES.Road;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -157,7 +158,7 @@ public class RoadList extends javax.swing.JFrame {
                 jLabel4MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 100, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 500, 100, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Menu_admin_advert.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -199,7 +200,22 @@ public class RoadList extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteMouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-       
+       Random rand = new Random();
+        int  n = rand.nextInt(50) + 1;
+        String Number= Integer.toString(n);
+        Road r= new Road("Driver "+Number, 
+                               0, 
+                               0, 
+                               "City", 
+                                "City",
+                               "yes",
+                               java.sql.Date.valueOf("1992-08-01"),
+                                java.sql.Date.valueOf("1992-08-01"),
+                               "14h",
+                               "15h", 
+                               "Car"
+                                 );
+        modele.AddRoad(r);
     }//GEN-LAST:event_jLabel4MouseClicked
     
     /**
