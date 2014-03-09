@@ -155,4 +155,23 @@ public class RoadDAO {
            
        }
        
+        public void Reserver(Road r){
+           int seat = r.getSeat()-1;
+            String requete = "update road set  Seat=? where Id=?";
+        try {
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+           
+            ps.setInt(1, seat);
+            
+            ps.setInt(2, r.getId());
+            
+
+            
+            ps.executeUpdate();
+            System.out.println("Road reserved successfully");
+        } catch (SQLException ex) {
+            System.out.println("Error : "+ex.getMessage());
+        }
+      }
+       
 }
