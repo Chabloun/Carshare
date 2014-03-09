@@ -138,7 +138,7 @@ public class InscriClient extends javax.swing.JFrame {
                 InscritActionPerformed(evt);
             }
         });
-        getContentPane().add(Inscrit, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 640, 170, 50));
+        getContentPane().add(Inscrit, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 640, 230, 60));
 
         Date.setBackground(new java.awt.Color(51, 53, 55));
         Date.setBorder(javax.swing.BorderFactory.createCompoundBorder());

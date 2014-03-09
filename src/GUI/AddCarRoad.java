@@ -61,7 +61,7 @@ public class AddCarRoad extends javax.swing.JFrame {
                 AjouterActionPerformed(evt);
             }
         });
-        getContentPane().add(Ajouter, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 590, 170, 50));
+        getContentPane().add(Ajouter, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 570, 190, 80));
 
         login.setBackground(new java.awt.Color(51, 53, 55));
         login.setBorder(null);
