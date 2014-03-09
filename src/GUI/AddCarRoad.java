@@ -92,19 +92,24 @@ public class AddCarRoad extends javax.swing.JFrame {
         CityR.setBorder(null);
         getContentPane().add(CityR, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 370, 40));
 
+        oui.setBackground(new java.awt.Color(45, 47, 49));
         buttonGroup1.add(oui);
-        oui.setText("Oui");
         oui.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ouiActionPerformed(evt);
             }
         });
-        getContentPane().add(oui, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 570, -1, -1));
+        getContentPane().add(oui, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 540, 40, 30));
 
+        non.setBackground(new java.awt.Color(45, 47, 49));
         buttonGroup1.add(non);
         non.setSelected(true);
-        non.setText("Non");
-        getContentPane().add(non, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 570, -1, -1));
+        non.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(non, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 30, 30));
 
         car.setBackground(new java.awt.Color(51, 53, 55));
         car.setColumns(20);
@@ -235,6 +240,10 @@ public class AddCarRoad extends javax.swing.JFrame {
     private void dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dateActionPerformed
+
+    private void nonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nonActionPerformed
 
     /**
      * @param args the command line arguments
