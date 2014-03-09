@@ -107,9 +107,13 @@ public class AffichageUserGui extends javax.swing.JFrame {
         setForeground(java.awt.Color.black);
         setMaximumSize(new java.awt.Dimension(1040, 600));
         setMinimumSize(new java.awt.Dimension(1040, 600));
-        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1040, 600));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         MenuAdvert.setBackground(new java.awt.Color(255, 51, 51));
