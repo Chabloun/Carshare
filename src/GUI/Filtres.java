@@ -19,7 +19,7 @@ public class Filtres extends DefaultTableCellRenderer{
  
     public Filtres() {
         super();
-       no = new ImageIcon("/IMG/UserInterface/off.png");
+       no = new ImageIcon("/IMG/RoadList/no.png ");
        yes = new ImageIcon("/IMG/RoadList/R.png ");
     }
  
@@ -29,7 +29,7 @@ public class Filtres extends DefaultTableCellRenderer{
         JLabel lbl = new JLabel();
         String Filtres = (String)value;
         ImageIcon yes = new ImageIcon(getClass().getResource("/IMG/RoadList/R.png "));
-        ImageIcon no = new ImageIcon(getClass().getResource("/IMG/UserInterface/off.png"));
+        ImageIcon no = new ImageIcon(getClass().getResource("/IMG/RoadList/no.png "));
  
         if(Filtres.equals("yes")){
             
