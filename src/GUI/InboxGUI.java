@@ -28,9 +28,10 @@ public class InboxGUI extends javax.swing.JFrame {
      */
     public InboxGUI() {
         initComponents();
+        jTable1.getColumnModel().getColumn(0).setCellRenderer(new CustomCellRender_Message());
          Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-      jTable1.setAutoCreateRowSorter(true);
+        jTable1.setAutoCreateRowSorter(true);
         
         Color c = new Color(63,70,73);
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(jTable1.getModel());
@@ -48,21 +49,22 @@ public class InboxGUI extends javax.swing.JFrame {
         
         
          getContentPane().setBackground(c); 
-          DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
-            renderer.setHorizontalAlignment(SwingConstants.CENTER);
-            TableColumn AlignementCol;
-            for(int i = 0; i < modele.getColumnCount(); i++)
-            {
-                AlignementCol= jTable1.getColumnModel().getColumn(i);
-                AlignementCol.setCellRenderer(renderer);
-            } 
-            
-             for(int i = 0; i < modele.getColumnCount(); i++)
-            {
-                TableColumn column = jTable1.getColumnModel().getColumn(i);
-                column.setHeaderRenderer(new CustomCellRender());
-            }
+//          CustomCellRender_Message renderer = new CustomCellRender_Message();
+//            renderer.setHorizontalAlignment(SwingConstants.CENTER);
+//            TableColumn AlignementCol;
+//            for(int i = 0; i < modele.getColumnCount(); i++)
+//            {
+//                AlignementCol= jTable1.getColumnModel().getColumn(i);
+//                AlignementCol.setCellRenderer(renderer);
+//            } 
+//            
+//             for(int i = 0; i < modele.getColumnCount(); i++)
+//            {
+//                TableColumn column = jTable1.getColumnModel().getColumn(i);
+//                column.setHeaderRenderer(new CustomCellRender());
+//            }
         //end set header border:disabled
+               
         Color HeaderColorBackground = new Color(34,168,108);
         header.setBackground(HeaderColorBackground);
     }
@@ -76,9 +78,11 @@ public class InboxGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         New_msg_but = new javax.swing.JLabel();
+        Red = new javax.swing.JLabel();
         MenuInboxBut = new javax.swing.JLabel();
         MenuUsersBut = new javax.swing.JLabel();
         MenuAdvertBut = new javax.swing.JLabel();
@@ -86,9 +90,6 @@ public class InboxGUI extends javax.swing.JFrame {
         DeleteMsg = new javax.swing.JLabel();
         jMsgS = new javax.swing.JButton();
         jMsgR = new javax.swing.JButton();
-        MenuInboxBut = new javax.swing.JLabel();
-        MenuUsersBut = new javax.swing.JLabel();
-        MenuAdvertBut = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(63, 70, 73));
@@ -96,6 +97,11 @@ public class InboxGUI extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(0, 600));
         setPreferredSize(new java.awt.Dimension(1040, 506));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(225, 225, 225));
+        jLabel1.setText("0");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 36, 30, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 0, 0));
         jScrollPane1.setBorder(null);
@@ -109,6 +115,11 @@ public class InboxGUI extends javax.swing.JFrame {
         jTable1.setRowHeight(50);
         jTable1.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 870, 352));
@@ -126,6 +137,9 @@ public class InboxGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(New_msg_but, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 157, -1, -1));
+
+        Red.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Buttons/Ellipse_Red.png"))); // NOI18N
+        getContentPane().add(Red, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         MenuInboxBut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MenuInboxBut.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -218,6 +232,7 @@ public class InboxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteMsgMouseExited
 
     private void jMsgSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMsgSActionPerformed
+        jTable1.getColumnModel().getColumn(0).setCellRenderer(new CustomCellRender_Message());
         jTable1.setModel(modele2);
           jTable1.setAutoCreateRowSorter(true);
         
@@ -258,6 +273,7 @@ public class InboxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMsgSActionPerformed
 
     private void jMsgRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMsgRActionPerformed
+       jTable1.getColumnModel().getColumn(0).setCellRenderer(new CustomCellRender_Message());
         jTable1.setModel(modele);
          jTable1.setAutoCreateRowSorter(true);
         
@@ -312,6 +328,11 @@ public class InboxGUI extends javax.swing.JFrame {
     private void MenuInboxButMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuInboxButMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuInboxButMouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        MessageGUI a = new MessageGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_jTable1MouseClicked
                                                 
                                       
 
@@ -353,6 +374,8 @@ public class InboxGUI extends javax.swing.JFrame {
     private javax.swing.JLabel MenuInboxBut;
     private javax.swing.JLabel MenuUsersBut;
     private javax.swing.JLabel New_msg_but;
+    private javax.swing.JLabel Red;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jMsgR;
     private javax.swing.JButton jMsgS;
     private javax.swing.JScrollPane jScrollPane1;
