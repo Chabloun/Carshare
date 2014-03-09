@@ -83,21 +83,19 @@ public class InscriClient extends javax.swing.JFrame {
         });
         getContentPane().add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 370, 40));
 
-        Homme.setBackground(new java.awt.Color(51, 53, 55));
+        Homme.setBackground(new java.awt.Color(45, 47, 49));
         buttonGroup1.add(Homme);
         Homme.setSelected(true);
-        Homme.setText("M");
-        getContentPane().add(Homme, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, -1, -1));
+        getContentPane().add(Homme, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 30, 40));
 
-        Femme.setBackground(new java.awt.Color(51, 53, 55));
+        Femme.setBackground(new java.awt.Color(45, 47, 49));
         buttonGroup1.add(Femme);
-        Femme.setText("F");
         Femme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FemmeActionPerformed(evt);
             }
         });
-        getContentPane().add(Femme, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 580, -1, -1));
+        getContentPane().add(Femme, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 540, 20, 30));
 
         City.setBackground(new java.awt.Color(51, 53, 55));
         City.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
