@@ -243,7 +243,7 @@ public class InscriClient extends javax.swing.JFrame {
                                                         UserDAO Cdao = new UserDAO();
         User c = new User();
         c.setLogin(Login.getText());
-        c.setPassword(pwd.getPassword().toString());
+        c.setPassword(pwd.getText());
         c.setFirstName(FirstName.getText());
         c.setLastName(LastName.getText());
         String sexe="";

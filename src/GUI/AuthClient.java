@@ -148,6 +148,7 @@ public class AuthClient extends javax.swing.JFrame {
     private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
         InscriClient insc= new InscriClient();
         insc.setVisible(rootPaneCheckingEnabled);
+        this.dispose();
     }//GEN-LAST:event_RegisterActionPerformed
 
     /**
