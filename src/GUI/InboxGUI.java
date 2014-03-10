@@ -6,6 +6,8 @@
 
 package GUI;
 
+import DAO.MessageDAO;
+import ENTITIES.Message;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -46,7 +48,15 @@ public class InboxGUI extends javax.swing.JFrame {
         header.setBackground(bgcolor);
         header.setForeground(focolor);
         header.setBorder(null);
-        
+        int unreadedMNumber = new MessageDAO().getUnreadedMessage();
+        if(unreadedMNumber>0)
+        {
+            jLabel1.setText(unreadedMNumber+"");
+        }else
+        {
+            jLabel1.setVisible(false);
+            Red.setVisible(false);
+        }
         
          getContentPane().setBackground(c); 
 //          CustomCellRender_Message renderer = new CustomCellRender_Message();
@@ -95,7 +105,6 @@ public class InboxGUI extends javax.swing.JFrame {
         setBackground(new java.awt.Color(63, 70, 73));
         setForeground(java.awt.Color.black);
         setMinimumSize(new java.awt.Dimension(0, 600));
-        setPreferredSize(new java.awt.Dimension(1040, 506));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -118,6 +127,11 @@ public class InboxGUI extends javax.swing.JFrame {
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
+            }
+        });
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable1KeyPressed(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -330,9 +344,24 @@ public class InboxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuInboxButMouseClicked
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        MessageGUI a = new MessageGUI();
-        a.setVisible(true);
+       
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
+       int id;
+        id=(int)modele.getValueAt(jTable1.getSelectedRow(), 1);
+//        m.setPrice((Float)modele.getValueAt(jTable1.getSelectedRow(), 2)); 
+//        m.setSeat((int)modele.getValueAt(jTable1.getSelectedRow(), 3)); 
+//        r.setCityD((String)modele.getValueAt(jTable1.getSelectedRow(), 4));
+//        r.setCityR((String)modele.getValueAt(RoadList.getSelectedRow(), 5));
+//        r.setRound((String)modele.getValueAt(RoadList.getSelectedRow(), 6));
+//        r.setDateD((Date)modele.getValueAt(RoadList.getSelectedRow(), 7)); 
+//        r.setDateR((Date)modele.getValueAt(RoadList.getSelectedRow(), 8));
+//        r.setHourD((String)modele.getValueAt(RoadList.getSelectedRow(), 9)); 
+//        r.setHourR((String)modele.getValueAt(RoadList.getSelectedRow(), 10)); 
+//        r.setCar((String)modele.getValueAt(RoadList.getSelectedRow(), 11)); 
+        new MessageGUI(id).setVisible(true);
+    }//GEN-LAST:event_jTable1KeyPressed
                                                 
                                       
 

@@ -44,7 +44,7 @@ public class MessageSent extends AbstractTableModel{
             case 0:
               return ListMsg.get(rowIndex).getId_message();
             case 1:
-                return ListMsg.get(rowIndex).getFrom();
+                return ListMsg.get(rowIndex).getTo();
             case 2:
                 return ListMsg.get(rowIndex).getObject();
             case 3:
@@ -69,7 +69,7 @@ public class MessageSent extends AbstractTableModel{
                     Msg.setId_message((int)aValue);
                     break;
                 case 2:
-                    Msg.setFrom((String)aValue);
+                    Msg.setTo((String)aValue);
                     break;
                 case 3:
                     Msg.setObject((String)aValue);

@@ -35,7 +35,7 @@ public class CustomCellRender_Message extends DefaultTableCellRenderer{
         Boolean blocked = (Boolean)value;
         ImageIcon iconMC = new ImageIcon(getClass().getResource("/IMG/Buttons/Msg_Closed.png"));
         ImageIcon iconMO = new ImageIcon(getClass().getResource("/IMG/Buttons/Msg_Open.png"));
-        System.out.println(value);
+        //System.out.println(value);
         if(blocked){         
             lbl.setText("");
             lbl.setIcon(iconMC);

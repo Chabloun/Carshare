@@ -62,6 +62,8 @@ public class Inbox extends AbstractTableModel{
     }
          
     }
+    
+   
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         if(aValue != null){
             Message Msg = ListMsg.get(rowIndex);

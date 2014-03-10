@@ -25,7 +25,24 @@ public class MessageGUI extends javax.swing.JFrame {
          Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
-
+    
+    public MessageGUI(int id) {
+        initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        //instancier message
+        Message M = new Message();
+        //instancier dao
+        MessageDAO MD = new MessageDAO();
+        //appeler la methode (get message by id) --> message
+        M =MD.findUserByLogin(id);
+        
+        //ajouti lil label ex : label.setText(message.getFrom());
+        Sender.setText(M.getFrom());
+        Reciever.setText(M.getTo());
+        Jmsg.setText(M.getContent());
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,7 +67,6 @@ public class MessageGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(63, 70, 73));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(500, 640));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -60,7 +76,7 @@ public class MessageGUI extends javax.swing.JFrame {
 
         Sender.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         Sender.setForeground(new java.awt.Color(225, 225, 225));
-        getContentPane().add(Sender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 46, 14));
+        getContentPane().add(Sender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 90, 30));
 
         To_lab.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         To_lab.setForeground(new java.awt.Color(33, 154, 101));
@@ -74,7 +90,7 @@ public class MessageGUI extends javax.swing.JFrame {
 
         Reciever.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         Reciever.setForeground(new java.awt.Color(225, 225, 225));
-        getContentPane().add(Reciever, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 115, 30, 10));
+        getContentPane().add(Reciever, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 115, 80, 20));
 
         Message.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         Message.setForeground(new java.awt.Color(225, 225, 225));
@@ -122,7 +138,7 @@ public class MessageGUI extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Message msg = new Message();
         MessageDAO Msg =new MessageDAO();
-       msg= Msg.ViewMessage(12);
+       msg= Msg.ViewMessage(31);
         System.out.println(msg.getFrom());
         
         Sender.setText(msg.getFrom());

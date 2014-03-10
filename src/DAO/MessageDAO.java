@@ -7,6 +7,7 @@
 package DAO;
 
 import ENTITIES.Message;
+import ENTITIES.User;
 
 import UTIL.MyConnection;
 
@@ -22,7 +23,15 @@ import java.util.List;
  * @author Becem
  */
 public class MessageDAO {
-        public void SendMessage(Message m){
+        
+    
+    public void Reply(String R, String S)
+    {
+        String requete;
+            requete = "insert into message(Sender,Reciever,Object,Content) values("+R+","+S+",?,?)";
+        
+    }
+    public void SendMessage(Message m){
 
         String requete;
             requete = "insert into message(Sender,Reciever,Object,Content) values(?,?,?,?)";
@@ -32,6 +41,7 @@ public class MessageDAO {
             ps.setString(2, m.getTo());
             ps.setString(3, m.getObject());
             ps.setString(4, m.getContent());
+            
             ps.executeUpdate();
             System.out.println("Message envoyé avec succée ");
         } catch (SQLException ex) {
@@ -73,8 +83,9 @@ public class MessageDAO {
                 msg.setTo(resultat.getString(3));
                 msg.setObject(resultat.getString(4));
                 msg.setContent(resultat.getString(5));
-                msg.setRead(resultat.getBoolean(6));
-
+                //msg.setDate(resultat.getDate(6).toString());
+                msg.setRead(resultat.getBoolean(7));
+                System.out.println("+ "+resultat.getInt(7));
                 listemsg.add(msg);
             }
             return listemsg;
@@ -117,6 +128,49 @@ public class MessageDAO {
             return null;
         }
     }
+         public Message findUserByLogin(int id){
+    Message Msg = new Message();
+     String requete = "select * from Message where 'Id'=?";
+        try {
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ps.setInt(1, id);
+            ResultSet resultat = ps.executeQuery();
+            while (resultat.next())
+            {
+                
+                Msg.setId_message(resultat.getInt(1));
+                Msg.setFrom(resultat.getString(2));
+                Msg.setTo(resultat.getString(3));
+               Msg.setObject(resultat.getString(4));
+                Msg.setContent(resultat.getString(5));
+                Msg.setRead(resultat.getBoolean(6));
+            }
+            return Msg;
+
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error : "+ex.getMessage());
+            return null;
+        }
+    }
+         public int getUnreadedMessage(){
+             int num=0;
+             String requete = "select count(*) from message where `Read`=0 AND `Reciever`='Admin'";
+             try {
+             Statement statement = MyConnection.getInstance()
+                   .createStatement();
+            
+            ResultSet resultat = statement.executeQuery(requete);
+             while(resultat.next()){
+                 System.out.println("here"); 
+                num=resultat.getInt(1);              
+             }
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+        }
+             return num;
+        }
    public Message ViewMessage (int id)
    {
        
